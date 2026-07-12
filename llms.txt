@@ -5,6 +5,8 @@ Kommutr is a local mobility app for riders and drivers across Austin and nearby 
 
 ## Primary
 - [Home](https://www.kommutr.com/): Marketing overview — ride, drive, pricing posture, cities, download CTAs
+- [Privacy Policy](https://www.kommutr.com/privacy/): How Kommutr handles personal data (stub until attorney-approved policy)
+- [Terms of Service](https://www.kommutr.com/terms/): Legal terms for using Kommutr (stub until attorney-approved terms)
 
 ## Product context
 - [Ride](https://www.kommutr.com/#ride): How requesting, matching, and riding works in the app

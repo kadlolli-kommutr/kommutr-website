@@ -2,7 +2,7 @@
 
 A simple progress log.  
 **Site:** [www.kommutr.com](https://www.kommutr.com)  
-**Updated:** July 12, 2026 (Phases 0–3)
+**Updated:** July 12, 2026 (Phases 0–4)
 
 Read this anytime to see what’s finished. We’ll add a short section each time a phase is done.
 
@@ -133,13 +133,38 @@ In the project; publishing with this change. Sanity warnings cleared (0 warnings
 
 ---
 
+## Phase 4 — Privacy & Terms pages ✅ Done (stubs)
+
+**In plain English:** The footer “Privacy” and “Terms” links now go to real pages instead of nowhere.
+
+### What we added
+| Page | Address | What’s there |
+|------|---------|----------------|
+| Privacy Policy | [www.kommutr.com/privacy/](https://www.kommutr.com/privacy/) | Clear stub + contact email |
+| Terms of Service | [www.kommutr.com/terms/](https://www.kommutr.com/terms/) | Clear stub + contact email |
+
+Also updated the homepage footer, sitemap, and AI brief (`llms.txt`) so they list these pages.
+
+### Why it matters
+**Issue:** Links that go nowhere look unfinished and hurt trust (and app-store readiness).  
+**Without this:** Visitors click Privacy/Terms and get stuck; search engines have nothing real to index for legal pages.  
+**What visitors notice:** Working Privacy and Terms links; honest “full policy coming soon” wording plus `support@kommutr.com`.
+
+### Important
+These are **placeholders**, not final legal documents. A lawyer should approve final text before App Store / paid ads.
+
+### Status
+Publishing with this change.
+
+---
+
 ## Not done yet (coming in later phases)
 
 | Phase | Topic | Status |
 |-------|--------|--------|
 | 2 | Help Google/Bing find your pages | ✅ Done (live) |
-| 3 | Nice previews when someone shares your link | ✅ Done (this publish) |
-| 4 | Privacy and Terms pages | Not started |
+| 3 | Nice previews when someone shares your link | ✅ Done |
+| 4 | Privacy and Terms pages | ✅ Done (stubs — lawyer copy later) |
 | 5 | Register the site in Google & Bing tools | Not started (needs you to log in) |
 | 6 | Tell Bing quickly when pages change | Not started |
 | 7 | Extra helpers for AI browser tools | Not started |

@@ -170,7 +170,8 @@ Google/Meta-class sites ship a standard header set at the edge: CSP, clickjackin
 
 **Owner:** Agent (stubs) + **Founder/Legal** (final copy)  
 **Depends on:** Phase 2–3 recommended first  
-**Files:** `privacy/index.html`, `terms/index.html` (or `privacy.html` + redirects)
+**Files:** `privacy/index.html`, `terms/index.html`  
+**Status:** ✅ **DONE (stubs live after publish)** — replace with attorney copy before store launch
 
 ### Scope
 1. Real URLs: `/privacy/`, `/terms/`
@@ -180,9 +181,10 @@ Google/Meta-class sites ship a standard header set at the edge: CSP, clickjackin
 5. Add both URLs to `sitemap.xml` + `llms.txt`
 
 ### Acceptance
-- [ ] `/privacy/` and `/terms/` → 200
-- [ ] Footer links work
-- [ ] Sitemap lists both
+- [x] `/privacy/` and `/terms/` pages exist
+- [x] Footer links work
+- [x] Sitemap lists both
+- [ ] Attorney-approved final copy (Founder/Legal)
 
 ### Founder follow-up
 - Replace stubs with attorney-approved policies before App Store / paid ads
