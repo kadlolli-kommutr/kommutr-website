@@ -1,0 +1,9 @@
+{
+  "name": "kommutr-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Kommutr marketing site (static HTML)",
+  "scripts": {
+    "deploy": "vercel deploy --prod"
+  }
+}
