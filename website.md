@@ -229,8 +229,8 @@ Note: Google’s old sitemap **ping URL is deprecated** — use GSC only.
 
 ### Acceptance
 - [x] Key file in repo  
-- [ ] Key URL → 200 text/plain (after deploy)  
-- [ ] Test POST → 200 or 202 (after deploy)  
+- [x] Key URL → 200 text/plain (live)  
+- [x] Test POST → 202 Accepted (IndexNow OK)  
 
 ---
 

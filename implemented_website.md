@@ -231,7 +231,16 @@ Key was generated and hosted on the site (IndexNow allows self-generated keys; B
 - After meaningful publishes, run `npm run indexnow` (or we can automate later)
 
 ### Status
-✅ Implemented — run `npm run indexnow` after deploy so the proof file is live first.
+✅ Live — proof file on www; test ping returned **202 Accepted**.
+
+After future content publishes, run:
+
+```bash
+cd /Users/kommutr/kommutr/kommutr-website
+npm run indexnow
+```
+
+(Or pass specific URLs: `npm run indexnow -- https://www.kommutr.com/somepage/`)
 
 ---
 
