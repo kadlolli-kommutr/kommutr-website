@@ -2,7 +2,7 @@
 
 A simple progress log.  
 **Site:** [www.kommutr.com](https://www.kommutr.com)  
-**Updated:** July 12, 2026 (Phases 0–9 page shipped; waitlist email key TBD)
+**Updated:** July 12, 2026 (Phases 0–9 done)
 
 Read this anytime to see what’s finished. We’ll add a short section each time a phase is done.
 
@@ -379,7 +379,9 @@ Until the key is set, the form shows a friendly message asking people to email s
 - Spreadsheet/CRM sync (Web3Forms email is enough to start)
 
 ### Status
-✅ Page and API shipped. 🟡 Inbox delivery waits on your Web3Forms key in Vercel.
+✅ **Done** — waitlist live; signups email via Web3Forms.
+
+Optional: run `npm run indexnow` once so Bing picks up `/waitlist/` sooner.
 
 ---
 

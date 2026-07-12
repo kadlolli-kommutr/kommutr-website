@@ -291,7 +291,7 @@ Note: Google’s old sitemap **ping URL is deprecated** — use GSC only.
 
 **Owner:** Agent + Marketing + Founder  
 **Depends on:** Phase 4, Phase 7a; Legal/Marketing copy for waitlist  
-**Status:** ✅ **Page + API shipped** — Founder must set `WEB3FORMS_ACCESS_KEY` on Vercel for live submits
+**Status:** ✅ **DONE** (2026-07-12) — live submits via Web3Forms (browser) + `WEB3FORMS_ACCESS_KEY`
 
 ### Scope
 1. `/waitlist/` page + form — ✅  
@@ -311,7 +311,7 @@ Note: Google’s old sitemap **ping URL is deprecated** — use GSC only.
 ### Acceptance
 - [x] Page live at `/waitlist/`
 - [x] Abuse controls: honeypot + server validation + no PII client logs
-- [ ] End-to-end submit works (after Web3Forms env is set)
+- [x] End-to-end submit works (Web3Forms + Vercel env)
 - [x] No PII in client-side logs
 
 ---
