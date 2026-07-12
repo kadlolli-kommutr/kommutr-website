@@ -38,7 +38,7 @@ Execute phases in order unless noted. After each **Agent** phase: commit → pus
 | GSC / Bing / IndexNow | Assume not done |
 | Privacy / Terms URLs | **Missing** (footer placeholders) |
 | WebMCP | Phase 7a ✅ (`navigate_section`); 7b with waitlist |
-| Monitoring / analytics | Not in repo |
+| Monitoring / analytics | Phase 8 founder checklist (SPF live; uptime/2FA/DMARC TBD) |
 
 ---
 
@@ -261,17 +261,18 @@ Note: Google’s old sitemap **ping URL is deprecated** — use GSC only.
 
 ## Phase 8 — Observability & account hardening
 
-**Owner:** Founder (+ Agent can add minimal analytics snippet if approved)  
-**Depends on:** Phase 1–4 preferred
+**Owner:** Founder (+ Agent only after you pick analytics)  
+**Depends on:** Phase 1–4 preferred  
+**Status:** 🟡 **Founder checklist** (agent cannot finish alone)
 
 ### Scope (commercial baseline)
-| Item | Action |
-|------|--------|
-| Uptime | Better Stack / Checkly / Vercel monitoring on `https://www.kommutr.com/` |
-| Errors | Optional Sentry (only if JS grows) |
-| Analytics | Plausible or GA4 — **Founder chooses**; cookie banner if required |
-| Access | 2FA on Porkbun, Vercel, GitHub; protect `main` |
-| DNS email | SPF / DKIM / DMARC before sending waitlist mail |
+| Item | Action | Status notes (2026-07-12) |
+|------|--------|---------------------------|
+| Uptime | Better Stack / Checkly / UptimeRobot / Vercel monitoring on `https://www.kommutr.com/` | Founder sets up |
+| Errors | Optional Sentry (only if JS grows) | **Skip for now** — static site |
+| Analytics | Plausible or GA4 — **Founder chooses**; cookie banner if required | **Do not add** until Founder picks |
+| Access | 2FA on Porkbun, Vercel, GitHub; protect `main` | Founder; repo has **no** rulesets yet |
+| DNS email | SPF / DKIM / DMARC before waitlist mail | **SPF present:** `v=spf1 include:zohomail.com include:_spf.porkbun.com ~all` — confirm DKIM + DMARC |
 
 ### Agent portion (only if Founder picks a tool)
 - Add analytics script with CSP update in Phase 1 headers
@@ -280,6 +281,9 @@ Note: Google’s old sitemap **ping URL is deprecated** — use GSC only.
 ### Acceptance
 - [ ] External uptime check green
 - [ ] 2FA confirmed on critical accounts
+- [ ] `main` protected (ruleset or branch protection)
+- [ ] DKIM + DMARC confirmed (SPF already live)
+- [ ] Analytics decision recorded (none / Plausible / GA4)
 
 ---
 

@@ -2,7 +2,7 @@
 
 A simple progress log.  
 **Site:** [www.kommutr.com](https://www.kommutr.com)  
-**Updated:** July 12, 2026 (Phases 0–7a)
+**Updated:** July 12, 2026 (Phases 0–7a done; Phase 8 founder checklist)
 
 Read this anytime to see what’s finished. We’ll add a short section each time a phase is done.
 
@@ -261,6 +261,81 @@ When we add a waitlist form (Phase 9), we can mark that form with declarative We
 
 ### Status
 ✅ Live after deploy. You won’t “see” it unless you use a WebMCP-capable Chrome build/flag.
+
+---
+
+## Phase 8 — Keep the site watched & accounts locked down 🟡 Your checklist
+
+**In plain English:** Make sure someone gets alerted if the site goes down, lock accounts with 2FA, and finish email DNS so waitlist mail won’t land in spam later.
+
+This phase is mostly **you** (accounts + DNS). We skip error tools like Sentry for now — the site is still mostly static HTML.
+
+### Already true (we checked)
+- **SPF** for `kommutr.com` is live: Zoho Mail + Porkbun are allowed senders (`include:zohomail.com` and `include:_spf.porkbun.com`).
+- Website repo is public on GitHub; **`main` is not protected yet** (no rulesets).
+
+### A — Uptime (pick one, ~10 minutes)
+
+Monitor: **`https://www.kommutr.com/`** every 1–5 minutes. Alert to your phone/email.
+
+Easy free options:
+1. [UptimeRobot](https://uptimerobot.com/) — HTTP(s) monitor → email/SMS  
+2. [Better Stack](https://betterstack.com/) — uptime + status page  
+3. Checkly — if you already use it  
+
+When green: you should get a “up” confirmation and no false alarms for a day.
+
+### B — 2FA on critical accounts (do today)
+
+Turn on two-factor / passkeys for:
+- **GitHub** (kadlolli-kommutr + any admin accounts)
+- **Vercel** (team that owns `kommutr-website`)
+- **Porkbun** (DNS for kommutr.com)
+
+Also: Vercel → Project → **Git** → make sure only trusted people can push to production.
+
+### C — Protect `main` on GitHub (~5 minutes)
+
+On [kadlolli-kommutr/kommutr-website](https://github.com/kadlolli-kommutr/kommutr-website):  
+**Settings → Rules → Rulesets → New ruleset → Branch**
+
+Suggested rules:
+- Target branch: `main`
+- Require a pull request before merging (or require status checks: **Sanity check**)
+- Block force pushes
+
+(If GitHub says you need Pro for classic branch protection, **rulesets** on a public repo usually still work.)
+
+### D — Email DNS before waitlist mail (Zoho)
+
+You already have **SPF**. Still confirm in Porkbun DNS + Zoho:
+
+| Record | What “good” looks like |
+|--------|-------------------------|
+| **DKIM** | Zoho (or Porkbun email) DKIM TXT/CNAME present and verified in Zoho admin |
+| **DMARC** | TXT at `_dmarc.kommutr.com`, e.g. `v=DMARC1; p=none; rua=mailto:you@…` to start (tighten later) |
+
+Do this **before** Phase 9 sends real waitlist email.
+
+### E — Analytics (choose; we won’t add trackers until you say)
+
+Reply with one:
+1. **None for now** (fine)  
+2. **Plausible** (privacy-friendly; may need a small cookie/privacy note)  
+3. **GA4** (Google Analytics; usually needs a cookie banner)
+
+We will **not** put analytics code on the site until you pick.
+
+### When you’re done
+Reply **“Phase 8 done”** and include:
+- Which uptime tool  
+- Analytics choice (none / Plausible / GA4)  
+- Confirm 2FA + `main` protected + DKIM/DMARC checked  
+
+Then we move to **Phase 9 (waitlist)** when you’re ready.
+
+### Status
+🟡 Waiting on founder checklist (A–E).
 
 ---
 
