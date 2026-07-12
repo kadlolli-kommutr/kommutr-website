@@ -16,6 +16,11 @@
     errorEl.textContent = "";
   }
 
+  function showSuccess() {
+    form.hidden = true;
+    if (success) success.hidden = false;
+  }
+
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     clearError();
@@ -37,6 +42,12 @@
       return;
     }
 
+    // Honeypot filled → fake success, do not contact providers
+    if (honeypot) {
+      showSuccess();
+      return;
+    }
+
     var submitBtn = form.querySelector('button[type="submit"]');
     if (submitBtn) {
       submitBtn.disabled = true;
@@ -50,7 +61,7 @@
         email: email,
         name: name,
         interest: interest,
-        company_url: honeypot,
+        company_url: "",
       }),
     })
       .then(function (res) {
@@ -59,15 +70,45 @@
         });
       })
       .then(function (result) {
-        if (result.ok) {
-          form.hidden = true;
-          if (success) success.hidden = false;
+        if (!result.ok || !result.data.accessKey) {
+          var msg =
+            (result.data && result.data.error) ||
+            "Something went wrong. Please try again or email support@kommutr.com.";
+          showError(msg);
+          return null;
+        }
+        // Submit from the browser so Web3Forms domain checks see www.kommutr.com
+        return fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            access_key: result.data.accessKey,
+            subject: "Kommutr waitlist signup",
+            from_name: "Kommutr website",
+            name: result.data.name || "Waitlist guest",
+            email: result.data.email,
+            message:
+              "Kommutr waitlist signup.\nInterest: " +
+              (result.data.interest || interest) +
+              "\nName: " +
+              (name || "(not provided)"),
+            interest: result.data.interest || interest,
+          }),
+        }).then(function (upstream) {
+          return upstream.json().then(function (data) {
+            return { ok: upstream.ok && data.success !== false, data: data || {} };
+          });
+        });
+      })
+      .then(function (upstream) {
+        if (!upstream) return;
+        if (upstream.ok) {
+          showSuccess();
           return;
         }
-        var msg =
-          (result.data && result.data.error) ||
-          "Something went wrong. Please try again or email support@kommutr.com.";
-        showError(msg);
+        showError(
+          "Could not save your signup. Please try again or email support@kommutr.com."
+        );
       })
       .catch(function () {
         showError("Network error. Please try again or email support@kommutr.com.");
