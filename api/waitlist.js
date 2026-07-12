@@ -2,13 +2,14 @@
  * Waitlist intake — validates, rejects honeypot bots, forwards to Web3Forms.
  *
  * Vercel env (Production + Preview):
- *   WEB3FORMS_ACCESS_KEY = key from https://web3forms.com (free)
+ *   WEB3FORMS_ACCESS_KEY = Form Access Key from https://web3forms.com
  *
  * Never logs email or other PII.
  */
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const INTERESTS = new Set(["rider", "driver", "both"]);
+const SITE = "https://www.kommutr.com";
 
 function readBody(req) {
   if (req.body && typeof req.body === "object") return Promise.resolve(req.body);
@@ -25,7 +26,6 @@ function readBody(req) {
       try {
         resolve(JSON.parse(raw));
       } catch {
-        // application/x-www-form-urlencoded fallback
         const params = new URLSearchParams(raw);
         resolve(Object.fromEntries(params.entries()));
       }
@@ -42,7 +42,7 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
+  const accessKey = String(process.env.WEB3FORMS_ACCESS_KEY || "").trim();
   if (!accessKey) {
     return res.status(503).json({
       error:
@@ -58,7 +58,7 @@ module.exports = async function handler(req, res) {
     return res.status(status).json({ error: "Invalid request" });
   }
 
-  // Honeypot: treat as success so bots do not retry, but do not forward
+  // Honeypot: pretend success so bots stop; do not forward
   if (body.company_url) {
     return res.status(200).json({ ok: true });
   }
@@ -78,31 +78,48 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: "Please enter a valid email address." });
   }
 
+  const payload = {
+    access_key: accessKey,
+    subject: "Kommutr waitlist signup",
+    from_name: "Kommutr website",
+    name: name || "Waitlist guest",
+    email,
+    message: `Kommutr waitlist signup.\nInterest: ${interest}\nName: ${name || "(not provided)"}`,
+    interest,
+  };
+
   try {
     const upstream = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({
-        access_key: accessKey,
-        subject: "Kommutr waitlist signup",
-        from_name: "Kommutr website",
-        email,
-        name: name || "(not provided)",
-        interest,
-        message: `Waitlist signup\nInterest: ${interest}\nName: ${name || "(not provided)"}`,
-        botcheck: "",
-      }),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        // Helps if the Web3Forms key is locked to the site domain
+        Origin: SITE,
+        Referer: `${SITE}/waitlist/`,
+      },
+      body: JSON.stringify(payload),
     });
 
     const data = await upstream.json().catch(() => ({}));
     if (!upstream.ok || data.success === false) {
+      // Log only non-PII diagnostics for Vercel runtime logs
+      console.error("web3forms_upstream_failed", {
+        status: upstream.status,
+        code: data.code || null,
+        message: typeof data.message === "string" ? data.message.slice(0, 200) : null,
+      });
       return res.status(502).json({
         error: "Could not save your signup. Please try again or email support@kommutr.com.",
       });
     }
 
     return res.status(200).json({ ok: true });
-  } catch {
+  } catch (err) {
+    console.error("web3forms_fetch_error", {
+      name: err && err.name,
+      message: err && typeof err.message === "string" ? err.message.slice(0, 120) : null,
+    });
     return res.status(502).json({
       error: "Could not save your signup. Please try again or email support@kommutr.com.",
     });
