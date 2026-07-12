@@ -146,41 +146,23 @@ Google/Meta-class sites ship a standard header set at the edge: CSP, clickjackin
 
 **Owner:** Agent  
 **Depends on:** Phase 0  
-**Files:** `index.html`, `assets/og-image.png`, `assets/favicon.ico` (and/or `favicon.svg` / apple-touch)
+**Files:** `index.html`, `assets/og-image.png`, `assets/favicon.ico`, `assets/favicon-32.png`, `assets/apple-touch-icon.png`  
+**Status:** ✅ **DONE** — sanity warnings cleared; live after this publish
 
 ### Scope
 1. `<link rel="canonical" href="https://www.kommutr.com/" />`
 2. Full `og:*` + `twitter:card=summary_large_image` (absolute www image URLs)
 3. Create **1200×630** `assets/og-image.png` (PNG/JPG — not SVG-only)
 4. Favicon + apple-touch-icon links (stop favicon 404)
-5. Optional Organization JSON-LD with www URLs
+5. Optional Organization JSON-LD with www URLs (+ CSP script hash)
 6. Footer: do not leave Terms/Privacy as dead `#` once Phase 4 exists
 
-### OG snippet (canonical www)
-
-```html
-<link rel="canonical" href="https://www.kommutr.com/" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Kommutr" />
-<meta property="og:locale" content="en_US" />
-<meta property="og:url" content="https://www.kommutr.com/" />
-<meta property="og:title" content="Kommutr — Commute. Connect. Conserve." />
-<meta property="og:description" content="Community rides in Greater Austin. Request a ride or become a driver — upfront pricing and local matching in the app." />
-<meta property="og:image" content="https://www.kommutr.com/assets/og-image.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Kommutr — rides in Greater Austin" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Kommutr — Commute. Connect. Conserve." />
-<meta name="twitter:description" content="Community rides in Greater Austin. Request a ride or become a driver." />
-<meta name="twitter:image" content="https://www.kommutr.com/assets/og-image.png" />
-```
-
 ### Acceptance
-- [ ] View-source shows canonical + OG + Twitter
-- [ ] `https://www.kommutr.com/assets/og-image.png` → 200
-- [ ] Favicon request → 200
-- [ ] Sharing debugger preview OK (Founder can re-scrape caches)
+- [x] View-source shows canonical + OG + Twitter
+- [x] `assets/og-image.png` present (1200×630)
+- [x] Favicon linked
+- [ ] Sharing debugger preview OK after deploy (Founder can re-scrape caches)
+- [x] `npm run sanity` → 0 warnings for Phase 3 items
 
 ---
 

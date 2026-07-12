@@ -2,7 +2,7 @@
 
 A simple progress log.  
 **Site:** [www.kommutr.com](https://www.kommutr.com)  
-**Updated:** July 12, 2026 (Phases 0–2 live)
+**Updated:** July 12, 2026 (Phases 0–3)
 
 Read this anytime to see what’s finished. We’ll add a short section each time a phase is done.
 
@@ -107,12 +107,38 @@ Live (published July 12, 2026).
 
 ---
 
+## Phase 3 — Nice link previews + browser icon ✅ Done (live pending publish)
+
+**In plain English:** When someone pastes your link in Messages, Slack, LinkedIn, etc., they now get a proper title, description, and image — plus a tab icon in the browser.
+
+### What we added
+
+| Item | What it does |
+|------|----------------|
+| Official page address tag (canonical) | Tells Google the real URL is www.kommutr.com |
+| Share preview tags (Open Graph + Twitter) | Controls the card people see when sharing |
+| Share image (`og-image.png`) | The picture in that card (1200×630) |
+| Favicon + Apple icon | The small icon in the browser tab / home screen |
+| Organization info for Google | Helps search engines understand the company |
+
+### Why it matters
+**Without this:** Shares look blank or random; browser tab has a generic icon; the three sanity warnings appear.
+
+### What a visitor notices
+- Tab shows the Kommutr “K” icon
+- Pasting the link shows a branded preview (may need a few minutes / “refresh” in share debuggers)
+
+### Status
+In the project; publishing with this change. Sanity warnings cleared (0 warnings locally).
+
+---
+
 ## Not done yet (coming in later phases)
 
 | Phase | Topic | Status |
 |-------|--------|--------|
 | 2 | Help Google/Bing find your pages | ✅ Done (live) |
-| 3 | Nice previews when someone shares your link (image + tags) | Not started |
+| 3 | Nice previews when someone shares your link | ✅ Done (this publish) |
 | 4 | Privacy and Terms pages | Not started |
 | 5 | Register the site in Google & Bing tools | Not started (needs you to log in) |
 | 6 | Tell Bing quickly when pages change | Not started |
