@@ -18,12 +18,14 @@ section() { printf '\n== %s ==\n' "$*"; }
 # --- 1. Required files ---
 section "1. Required files exist"
 REQUIRED=(
-  index.html styles.css main.js waitlist.js vercel.json
+  index.html styles.css main.js waitlist.js vercel.json 404.html
   robots.txt sitemap.xml llms.txt package.json
   privacy/index.html terms/index.html waitlist/index.html
   ride/index.html drive/index.html business/index.html support/index.html
   cities/austin/index.html
   api/waitlist.js
+  assets/fonts.css
+  .well-known/security.txt
 )
 for f in "${REQUIRED[@]}"; do
   if [[ -f "$f" ]]; then green "$f"; else red "missing $f"; fi
@@ -201,6 +203,34 @@ if grep -q 'WEB3FORMS_ACCESS_KEY' api/waitlist.js; then
   green "waitlist API uses WEB3FORMS_ACCESS_KEY env"
 else
   red "waitlist API missing WEB3FORMS_ACCESS_KEY handling"
+fi
+
+# --- 8b. Phase 11 hardening ---
+section "8b. Phase 11 hardening"
+if ! grep -R --include='*.html' -q 'fonts.googleapis.com\|fonts.gstatic.com\|api.dicebear.com' . 2>/dev/null; then
+  green "no Google Fonts or Dicebear CDN references in HTML"
+else
+  red "HTML still references Google Fonts or Dicebear CDN"
+fi
+if grep -q 'fonts.googleapis.com\|fonts.gstatic.com\|api.dicebear.com' vercel.json; then
+  red "CSP still allows Google Fonts or Dicebear"
+else
+  green "CSP tightened (no Google Fonts / Dicebear)"
+fi
+if [[ -f assets/fonts/inter-latin-400-normal.woff2 && -f assets/fonts.css ]]; then
+  green "self-hosted Inter fonts present"
+else
+  red "self-hosted Inter fonts missing"
+fi
+if [[ -f .well-known/security.txt ]] && grep -q 'Contact:' .well-known/security.txt; then
+  green "security.txt present"
+else
+  red "security.txt missing"
+fi
+if [[ -f 404.html ]] && grep -qi 'not found' 404.html; then
+  green "custom 404.html present"
+else
+  red "404.html missing"
 fi
 
 # --- 9. Phase 3 soft checks ---

@@ -332,19 +332,21 @@ Per-page canonical + OG; expand sitemap + llms.txt; IndexNow on publish.
 
 ---
 
-## Phase 11 — Optional hardening (later)
+## Phase 11 — Optional hardening
 
 **Owner:** Agent / Founder as needed  
-Skip until traffic or compliance demands it.
+**Status:** ✅ **Agent portion done** (2026-07-12) — founder items remain optional
 
-- Self-host fonts (drop Google Fonts from CSP)
-- Replace Dicebear with local assets
-- `/.well-known/security.txt`
-- Vercel Attack Challenge / WAF
-- Preview-only robots noindex
-- Custom `404.html`
-- GitHub Action: Lighthouse CI on PRs
-- Domain lock + CAA DNS records
+| Item | Status |
+|------|--------|
+| Self-host fonts (drop Google Fonts from CSP) | ✅ Inter woff2 in `assets/fonts/` |
+| Replace Dicebear with local assets | ✅ SVGs in `assets/avatars/` |
+| `/.well-known/security.txt` | ✅ |
+| Custom `404.html` | ✅ |
+| Vercel Attack Challenge / WAF | Founder (Vercel Firewall when needed) |
+| Preview-only robots noindex | Founder (Deployment Protection / preview auth) |
+| GitHub Action: Lighthouse CI on PRs | Skipped (optional later) |
+| Domain lock + CAA DNS records | Founder (Porkbun) |
 
 ---
 

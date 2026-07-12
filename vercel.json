@@ -13,7 +13,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' https://api.web3forms.com; script-src 'self' 'sha256-/XZFC03YSAWPkeh0VuPT4eSRZtG0kfnUPWvO4GwfkNY=' 'sha256-F6dWtKweCaDC8Sm5ttJqyUNt8CcNGwS0FI65NrpTBAo='; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://api.dicebear.com; connect-src 'self' https://api.web3forms.com; upgrade-insecure-requests"
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' https://api.web3forms.com; script-src 'self' 'sha256-/XZFC03YSAWPkeh0VuPT4eSRZtG0kfnUPWvO4GwfkNY=' 'sha256-F6dWtKweCaDC8Sm5ttJqyUNt8CcNGwS0FI65NrpTBAo='; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; upgrade-insecure-requests"
         },
         {
           "key": "Access-Control-Allow-Origin",
@@ -27,6 +27,19 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/.well-known/(.*)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
         }
       ]
     },

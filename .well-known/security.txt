@@ -1,0 +1,4 @@
+Contact: mailto:support@kommutr.com
+Expires: 2027-07-12T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://www.kommutr.com/.well-known/security.txt

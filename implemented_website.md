@@ -2,7 +2,7 @@
 
 A simple progress log.  
 **Site:** [www.kommutr.com](https://www.kommutr.com)  
-**Updated:** July 12, 2026 (Phases 0–10 done)
+**Updated:** July 12, 2026 (Phases 0–11 agent work done)
 
 Read this anytime to see what’s finished. We’ll add a short section each time a phase is done.
 
@@ -402,6 +402,27 @@ Homepage nav and footer now point to these URLs. Sitemap and `llms.txt` updated.
 
 ### Status
 ✅ Live after deploy.
+
+---
+
+## Phase 11 — Extra hardening ✅ Mostly done
+
+**In plain English:** We removed outside dependencies we don’t need and added a few “company hygiene” files.
+
+### What we shipped
+- **Fonts** load from our site (no Google Fonts)
+- **Avatar images** stored locally (no Dicebear CDN)
+- **security.txt** at `/.well-known/security.txt` (where security researchers look)
+- **Custom 404** page when a URL doesn’t exist
+
+### Optional (you, later)
+- Vercel Firewall / Attack Challenge if you get spam traffic
+- Lock preview deployments behind login
+- CAA DNS records at Porkbun
+- Lighthouse CI (performance score gates)
+
+### Status
+✅ Agent portion live after deploy. Founder extras are optional.
 
 ---
 
