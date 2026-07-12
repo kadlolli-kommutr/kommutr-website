@@ -272,7 +272,7 @@ Note: Google’s old sitemap **ping URL is deprecated** — use GSC only.
 | Errors | Optional Sentry (only if JS grows) | **Skip for now** — static site |
 | Analytics | Plausible or GA4 — **Founder chooses**; cookie banner if required | **Do not add** until Founder picks |
 | Access | 2FA on Porkbun, Vercel, GitHub; protect `main` | Founder; repo has **no** rulesets yet |
-| DNS email | SPF / DKIM / DMARC before waitlist mail | **SPF present:** `v=spf1 include:zohomail.com include:_spf.porkbun.com ~all` — confirm DKIM + DMARC |
+| DNS email | SPF / DKIM / DMARC before waitlist mail | **SPF + DMARC live** (`p=none`); MX → Zoho — **confirm DKIM** in Zoho |
 
 ### Agent portion (only if Founder picks a tool)
 - Add analytics script with CSP update in Phase 1 headers
@@ -282,7 +282,7 @@ Note: Google’s old sitemap **ping URL is deprecated** — use GSC only.
 - [ ] External uptime check green
 - [ ] 2FA confirmed on critical accounts
 - [ ] `main` protected (ruleset or branch protection)
-- [ ] DKIM + DMARC confirmed (SPF already live)
+- [ ] DKIM confirmed in Zoho (SPF + DMARC already live)
 - [ ] Analytics decision recorded (none / Plausible / GA4)
 
 ---

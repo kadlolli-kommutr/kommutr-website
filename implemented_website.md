@@ -272,6 +272,8 @@ This phase is mostly **you** (accounts + DNS). We skip error tools like Sentry f
 
 ### Already true (we checked)
 - **SPF** for `kommutr.com` is live: Zoho Mail + Porkbun are allowed senders (`include:zohomail.com` and `include:_spf.porkbun.com`).
+- **DMARC** is live at `_dmarc.kommutr.com`: `v=DMARC1; p=none;` (monitor-only policy — fine to start; tighten later).
+- **MX** points at Zoho (`mx.zoho.com` / `mx2` / `mx3`).
 - Website repo is public on GitHub; **`main` is not protected yet** (no rulesets).
 
 ### A — Uptime (pick one, ~10 minutes)
@@ -308,12 +310,13 @@ Suggested rules:
 
 ### D — Email DNS before waitlist mail (Zoho)
 
-You already have **SPF**. Still confirm in Porkbun DNS + Zoho:
+You already have **SPF**, **DMARC** (`p=none`), and **MX → Zoho**. Still confirm:
 
-| Record | What “good” looks like |
-|--------|-------------------------|
-| **DKIM** | Zoho (or Porkbun email) DKIM TXT/CNAME present and verified in Zoho admin |
-| **DMARC** | TXT at `_dmarc.kommutr.com`, e.g. `v=DMARC1; p=none; rua=mailto:you@…` to start (tighten later) |
+| Record | Status |
+|--------|--------|
+| **SPF** | ✅ Live |
+| **DMARC** | ✅ Live (`p=none`) — optional later: add `rua=mailto:…` and tighten `p=` |
+| **DKIM** | Confirm in Zoho admin that domain DKIM is **Verified** (TXT/CNAME in Porkbun) |
 
 Do this **before** Phase 9 sends real waitlist email.
 
@@ -330,7 +333,7 @@ We will **not** put analytics code on the site until you pick.
 Reply **“Phase 8 done”** and include:
 - Which uptime tool  
 - Analytics choice (none / Plausible / GA4)  
-- Confirm 2FA + `main` protected + DKIM/DMARC checked  
+- Confirm 2FA + `main` protected + Zoho DKIM verified  
 
 Then we move to **Phase 9 (waitlist)** when you’re ready.
 
