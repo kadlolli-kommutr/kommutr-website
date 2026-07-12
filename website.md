@@ -38,7 +38,7 @@ Execute phases in order unless noted. After each **Agent** phase: commit → pus
 | GSC / Bing / IndexNow | Assume not done |
 | Privacy / Terms URLs | **Missing** (footer placeholders) |
 | WebMCP | Phase 7a ✅ (`navigate_section`); 7b with waitlist |
-| Monitoring / analytics | Phase 8 founder checklist (SPF live; uptime/2FA/DMARC TBD) |
+| Monitoring / analytics | Phase 8 ✅ — no uptime tool / no analytics for now; 2FA + email DNS done |
 
 ---
 
@@ -263,27 +263,27 @@ Note: Google’s old sitemap **ping URL is deprecated** — use GSC only.
 
 **Owner:** Founder (+ Agent only after you pick analytics)  
 **Depends on:** Phase 1–4 preferred  
-**Status:** 🟡 **Founder checklist** (agent cannot finish alone)
+**Status:** ✅ **DONE** (2026-07-12) — founder completed checklist
 
 ### Scope (commercial baseline)
 | Item | Action | Status notes (2026-07-12) |
 |------|--------|---------------------------|
-| Uptime | Better Stack / Checkly / UptimeRobot / Vercel monitoring on `https://www.kommutr.com/` | Founder sets up |
+| Uptime | Better Stack / Checkly / UptimeRobot / Vercel monitoring on `https://www.kommutr.com/` | **Skipped for now** (Founder choice) |
 | Errors | Optional Sentry (only if JS grows) | **Skip for now** — static site |
-| Analytics | Plausible or GA4 — **Founder chooses**; cookie banner if required | **Do not add** until Founder picks |
-| Access | 2FA on Porkbun, Vercel, GitHub; protect `main` | Founder; repo has **no** rulesets yet |
-| DNS email | SPF / DKIM / DMARC before waitlist mail | **SPF + DMARC live** (`p=none`); MX → Zoho — **confirm DKIM** in Zoho |
+| Analytics | Plausible or GA4 — **Founder chooses**; cookie banner if required | **None** (Founder choice) |
+| Access | 2FA on Porkbun, Vercel, GitHub; protect `main` | 2FA done; `main` ruleset deferred (private repo / paid later) |
+| DNS email | SPF / DKIM / DMARC before waitlist mail | **SPF + DKIM + DMARC live** (MX → Zoho) |
 
 ### Agent portion (only if Founder picks a tool)
 - Add analytics script with CSP update in Phase 1 headers
-- Do not add trackers without explicit approval
+- Do not add trackers without explicit approval — **none selected**
 
 ### Acceptance
-- [ ] External uptime check green
-- [ ] 2FA confirmed on critical accounts
-- [ ] `main` protected (ruleset or branch protection)
-- [ ] DKIM confirmed in Zoho (SPF + DMARC already live)
-- [ ] Analytics decision recorded (none / Plausible / GA4)
+- [x] Uptime decision recorded (**none** for now)
+- [x] 2FA confirmed on critical accounts
+- [ ] `main` protected — deferred (paid GitHub or public repo later)
+- [x] SPF + DKIM + DMARC confirmed
+- [x] Analytics decision recorded (**none**)
 
 ---
 

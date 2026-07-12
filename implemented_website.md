@@ -2,7 +2,7 @@
 
 A simple progress log.  
 **Site:** [www.kommutr.com](https://www.kommutr.com)  
-**Updated:** July 12, 2026 (Phases 0–7a done; Phase 8 founder checklist)
+**Updated:** July 12, 2026 (Phases 0–8 done)
 
 Read this anytime to see what’s finished. We’ll add a short section each time a phase is done.
 
@@ -338,7 +338,14 @@ Reply **“Phase 8 done”** and include:
 Then we move to **Phase 9 (waitlist)** when you’re ready.
 
 ### Status
-🟡 Waiting on founder checklist (A–E).
+✅ **Done** (July 12, 2026).
+
+**Choices recorded:**
+- **Uptime:** none for now (can add Better Stack later)
+- **Analytics:** none (no trackers on the site)
+- **2FA:** done (GitHub, Vercel, Porkbun)
+- **Protect `main`:** deferred (private repo needs paid GitHub, or make public later)
+- **Email DNS:** SPF + DKIM + DMARC in place (Zoho)
 
 ---
 
