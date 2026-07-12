@@ -92,7 +92,7 @@ Search engines index **URLs**, not `#anchors`. Do not put fragments in `sitemap.
 **Owner:** Agent  
 **Depends on:** Phase 0  
 **Files:** `vercel.json`  
-**Status:** 🟡 **IMPLEMENTED in repo** — mark ✅ after push to `main` and live curl passes
+**Status:** ✅ **DONE (live)** — verified 2026-07-12 on www.kommutr.com
 
 ### Why (commercial hosting)
 Google/Meta-class sites ship a standard header set at the edge: CSP, clickjacking defense, referrer control, permissions lockdown, no accidental CORS `*`.
@@ -115,9 +115,9 @@ Google/Meta-class sites ship a standard header set at the edge: CSP, clickjackin
 - Self-hosting fonts (optional Phase 1b later)
 
 ### Acceptance
-- [ ] `curl -sI https://www.kommutr.com/` shows Referrer-Policy, frame defense, Permissions-Policy, CSP
-- [ ] CORS is not `*` (site origin only)
-- [ ] `/assets/*` cache headers stronger than HTML
+- [x] `curl -sI https://www.kommutr.com/` shows Referrer-Policy, frame defense, Permissions-Policy, CSP
+- [x] CORS is not `*` (site origin only)
+- [x] `/assets/*` cache headers stronger than HTML
 
 ---
 
@@ -126,7 +126,7 @@ Google/Meta-class sites ship a standard header set at the edge: CSP, clickjackin
 **Owner:** Agent  
 **Depends on:** Phase 0  
 **Files:** `robots.txt`, `sitemap.xml`, `llms.txt`  
-**Status:** 🟡 **IMPLEMENTED in repo** — mark ✅ after push to `main` and live curl passes
+**Status:** ✅ **DONE (live)** — verified 2026-07-12 on www.kommutr.com
 
 ### Scope
 1. **`robots.txt`** — `Allow: /`, `Sitemap: https://www.kommutr.com/sitemap.xml`  
@@ -136,9 +136,9 @@ Google/Meta-class sites ship a standard header set at the edge: CSP, clickjackin
    - Privacy/Terms links added in Phase 4 when those pages exist
 
 ### Acceptance
-- [ ] `https://www.kommutr.com/robots.txt` → 200
-- [ ] `https://www.kommutr.com/sitemap.xml` → 200, only real URLs
-- [ ] `https://www.kommutr.com/llms.txt` → 200, valid structure
+- [x] `https://www.kommutr.com/robots.txt` → 200
+- [x] `https://www.kommutr.com/sitemap.xml` → 200, only real URLs
+- [x] `https://www.kommutr.com/llms.txt` → 200, valid structure
 
 ---
 

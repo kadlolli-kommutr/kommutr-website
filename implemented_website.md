@@ -2,7 +2,7 @@
 
 A simple progress log.  
 **Site:** [www.kommutr.com](https://www.kommutr.com)  
-**Updated:** July 12, 2026
+**Updated:** July 12, 2026 (Phases 0–2 live)
 
 Read this anytime to see what’s finished. We’ll add a short section each time a phase is done.
 
@@ -47,11 +47,9 @@ Finished and live.
 
 ---
 
-## Phase 1 — Safety and speed settings ✅ Done in code (needs publish)
+## Phase 1 — Safety and speed settings ✅ Done (live)
 
 **In plain English:** We added invisible “rules” on the server that protect the site and help it load faster on return visits.
-
-*These changes are saved in the project. They go live after we publish (push) to the website.*
 
 ### What we added
 
@@ -71,15 +69,13 @@ Big companies (Google, Meta, banks, etc.) always ship these kinds of protections
 ### What a visitor notices
 - Day to day: **almost nothing** — the site should look the same
 - Return visits may feel a bit snappier for logos/images
-- If something were wrong with the safety list, fonts or avatars could break (we allowed the ones you already use)
 
 ### Status
-Written into the project (`vercel.json`).  
-**Next step:** publish to make it live, then we can tick Phase 1 fully complete.
+Live on [www.kommutr.com](https://www.kommutr.com) (published July 12, 2026).
 
 ---
 
-## Phase 2 — Help search & AI find the site ✅ Done in code (needs publish)
+## Phase 2 — Help search & AI find the site ✅ Done (live)
 
 **In plain English:** We added three small “map” files so Google, Bing, and AI tools know what Kommutr is and which page matters.
 
@@ -98,7 +94,7 @@ Written into the project (`vercel.json`).
 
 ### What a visitor notices
 - Almost nothing on the normal homepage.
-- You (or we) can open these links after publish:
+- You can open:
   - [www.kommutr.com/robots.txt](https://www.kommutr.com/robots.txt)
   - [www.kommutr.com/sitemap.xml](https://www.kommutr.com/sitemap.xml)
   - [www.kommutr.com/llms.txt](https://www.kommutr.com/llms.txt)
@@ -107,8 +103,7 @@ Written into the project (`vercel.json`).
 - Privacy and Terms links in `llms.txt` / sitemap — those pages don’t exist yet (Phase 4).
 
 ### Status
-Files are in the project.  
-**Next step:** publish with Phase 1 so all of this goes live together.
+Live (published July 12, 2026).
 
 ---
 
@@ -116,7 +111,7 @@ Files are in the project.
 
 | Phase | Topic | Status |
 |-------|--------|--------|
-| 2 | Help Google/Bing find your pages | ✅ In code (needs publish) |
+| 2 | Help Google/Bing find your pages | ✅ Done (live) |
 | 3 | Nice previews when someone shares your link (image + tags) | Not started |
 | 4 | Privacy and Terms pages | Not started |
 | 5 | Register the site in Google & Bing tools | Not started (needs you to log in) |
@@ -134,8 +129,8 @@ Files are in the project.
 |-------|------------|----------|
 | Official site | Open [www.kommutr.com](https://www.kommutr.com) | Homepage loads |
 | Short address | Open [kommutr.com](https://kommutr.com) | Ends up on www |
-| Phase 1 live? | After publish — safety headers | Confirmed by us |
-| Phase 2 live? | After publish — open `/robots.txt`, `/sitemap.xml`, `/llms.txt` | Each page loads |
+| Phase 1 | Site sends safety headers | Confirmed live |
+| Phase 2 | Open `/robots.txt`, `/sitemap.xml`, `/llms.txt` | Each loads ✅ |
 
 ---
 
