@@ -2,7 +2,7 @@
 
 A simple progress log.  
 **Site:** [www.kommutr.com](https://www.kommutr.com)  
-**Updated:** July 12, 2026 (Phases 0–4)
+**Updated:** July 12, 2026 (Phases 0–7a)
 
 Read this anytime to see what’s finished. We’ll add a short section each time a phase is done.
 
@@ -241,6 +241,26 @@ npm run indexnow
 ```
 
 (Or pass specific URLs: `npm run indexnow -- https://www.kommutr.com/somepage/`)
+
+---
+
+## Phase 7a — WebMCP (AI browser helpers) ✅ Done
+
+**In plain English:** In browsers that support **WebMCP** (Chrome’s experimental “tools for AI agents” API), the homepage exposes one helper: scroll to a named section (ride, drive, download, etc.).
+
+### Why it matters
+AI assistants in the browser can jump to the right part of the page instead of guessing. Everyone else is unaffected — the site works the same.
+
+### What we added
+- In `main.js`: if `document.modelContext` exists, register tool **`navigate_section`**
+- Sections: value, ride, features, panels, drive, testimonials, cities, pricing, business, download, support
+- Unsupported browsers: nothing happens (no errors, no UI change)
+
+### Phase 7b (later)
+When we add a waitlist form (Phase 9), we can mark that form with declarative WebMCP attributes so agents can fill it with user confirmation.
+
+### Status
+✅ Live after deploy. You won’t “see” it unless you use a WebMCP-capable Chrome build/flag.
 
 ---
 

@@ -50,4 +50,61 @@
       el.classList.add("is-visible");
     });
   }
+
+  // Phase 7a — WebMCP (progressive enhancement; no-op when unsupported)
+  var modelContext = document.modelContext || navigator.modelContext;
+  if (modelContext && typeof modelContext.registerTool === "function") {
+    var SECTIONS = [
+      "value",
+      "ride",
+      "features",
+      "panels",
+      "drive",
+      "testimonials",
+      "cities",
+      "pricing",
+      "business",
+      "download",
+      "support",
+    ];
+
+    Promise.resolve(
+      modelContext.registerTool({
+        name: "navigate_section",
+        description:
+          "Scroll the Kommutr homepage to a named section so the user can read it. Use for ride, drive, download, pricing, cities, support, and related sections.",
+        inputSchema: {
+          type: "object",
+          properties: {
+            section: {
+              type: "string",
+              enum: SECTIONS,
+              description: "Homepage section id to bring into view.",
+            },
+          },
+          required: ["section"],
+          additionalProperties: false,
+        },
+        annotations: { readOnlyHint: true },
+        execute: async function (input) {
+          var section = input && input.section;
+          var el = section ? document.getElementById(section) : null;
+          if (!el) {
+            return 'Section "' + section + '" was not found on this page.';
+          }
+          document.body.classList.remove("nav-open");
+          if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+          if (history.replaceState) {
+            history.replaceState(null, "", "#" + section);
+          } else {
+            location.hash = section;
+          }
+          return "Navigated to the " + section + " section.";
+        },
+      })
+    ).catch(function () {
+      /* WebMCP unavailable or registration rejected — leave page unchanged */
+    });
+  }
 })();

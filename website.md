@@ -37,7 +37,7 @@ Execute phases in order unless noted. After each **Agent** phase: commit → pus
 | CSP / Referrer / Permissions / frame | **Missing** |
 | GSC / Bing / IndexNow | Assume not done |
 | Privacy / Terms URLs | **Missing** (footer placeholders) |
-| WebMCP | Not implemented |
+| WebMCP | Phase 7a ✅ (`navigate_section`); 7b with waitlist |
 | Monitoring / analytics | Not in repo |
 
 ---
@@ -242,17 +242,20 @@ Note: Google’s old sitemap **ping URL is deprecated** — use GSC only.
 **Refs:** [WebMCP](https://developer.chrome.com/docs/ai/webmcp), [Declarative](https://developer.chrome.com/docs/ai/webmcp/declarative-api), [Imperative](https://developer.chrome.com/docs/ai/webmcp/imperative-api)
 
 ### Phase 7a — Imperative (do with current one-pager)
-- Feature-detect `document.modelContext.registerTool`
-- Register `navigate_section` for `#ride`, `#drive`, `#download`, etc.
-- No-op on unsupported browsers
+**Status:** ✅ **DONE** (2026-07-12) — in `main.js`
+
+- Feature-detect `document.modelContext` (fallback `navigator.modelContext`)
+- Register `navigate_section` for `#value` `#ride` `#features` `#panels` `#drive` `#testimonials` `#cities` `#pricing` `#business` `#download` `#support`
+- No-op on unsupported browsers (try/catch + feature detect)
 
 ### Phase 7b — Declarative (with waitlist — Phase 9)
 - Form attrs: `toolname`, `tooldescription`, `toolparamdescription`
 - Avoid `toolautosubmit` for email capture
 
 ### Acceptance
-- [ ] Tools register when Chrome WebMCP flag / origin trial enabled
-- [ ] Unsupported browsers unchanged
+- [x] Tools register when Chrome WebMCP / `document.modelContext` is available (feature-detect)
+- [x] Unsupported browsers unchanged
+- [ ] Phase 7b deferred until waitlist form (Phase 9)
 
 ---
 

@@ -169,6 +169,11 @@ if node --check main.js >/dev/null 2>&1; then
 else
   red "main.js failed node --check"
 fi
+if grep -q 'modelContext' main.js && grep -q 'navigate_section' main.js && grep -q 'registerTool' main.js; then
+  green "WebMCP navigate_section registered (Phase 7a)"
+else
+  red "main.js missing WebMCP navigate_section registration"
+fi
 
 # --- 9. Phase 3 soft checks ---
 section "9. Canonical, Open Graph, favicon (Phase 3)"

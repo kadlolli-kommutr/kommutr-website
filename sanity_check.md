@@ -38,6 +38,7 @@ So: **one green/red check on every push and pull request.**
 
 ### No broken code / links
 - [x] `main.js` passes a syntax check
+- [x] WebMCP `navigate_section` registration present in `main.js` (Phase 7a)
 - [x] Local `href` / `src` files actually exist
 - [x] Every URL in `sitemap.xml` maps to a real file
 - [x] Discoverability files use the official **www** address
