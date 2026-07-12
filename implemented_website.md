@@ -2,7 +2,7 @@
 
 A simple progress log.  
 **Site:** [www.kommutr.com](https://www.kommutr.com)  
-**Updated:** July 12, 2026 (Phases 0–9 done)
+**Updated:** July 12, 2026 (Phases 0–10 done)
 
 Read this anytime to see what’s finished. We’ll add a short section each time a phase is done.
 
@@ -382,6 +382,26 @@ Until the key is set, the form shows a friendly message asking people to email s
 ✅ **Done** — waitlist live; signups email via Web3Forms.
 
 Optional: run `npm run indexnow` once so Bing picks up `/waitlist/` sooner.
+
+---
+
+## Phase 10 — Real pages for Ride, Drive, and more ✅ Done
+
+**In plain English:** Search engines care about real web addresses. We turned the main topics into their own pages (not only homepage sections).
+
+### New pages
+| Page | URL |
+|------|-----|
+| Ride | [www.kommutr.com/ride/](https://www.kommutr.com/ride/) |
+| Drive | [www.kommutr.com/drive/](https://www.kommutr.com/drive/) |
+| Business | [www.kommutr.com/business/](https://www.kommutr.com/business/) |
+| Support | [www.kommutr.com/support/](https://www.kommutr.com/support/) |
+| Greater Austin | [www.kommutr.com/cities/austin/](https://www.kommutr.com/cities/austin/) |
+
+Homepage nav and footer now point to these URLs. Sitemap and `llms.txt` updated.
+
+### Status
+✅ Live after deploy.
 
 ---
 

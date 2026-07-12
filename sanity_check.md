@@ -44,6 +44,7 @@ So: **one green/red check on every push and pull request.**
 - [x] Discoverability files use the official **www** address
 - [x] Privacy & Terms pages exist (`privacy/index.html`, `terms/index.html`) — Phase 4
 - [x] Waitlist page + API + honeypot (`waitlist/`, `api/waitlist.js`) — Phase 9
+- [x] Topic pages exist (`ride/`, `drive/`, `business/`, `support/`, `cities/austin/`) — Phase 10
 
 ---
 

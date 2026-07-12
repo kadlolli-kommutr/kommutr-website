@@ -6,15 +6,13 @@ Kommutr is a local mobility app for riders and drivers across Austin and nearby 
 ## Primary
 - [Home](https://www.kommutr.com/): Marketing overview — ride, drive, pricing posture, cities, download CTAs
 - [Waitlist](https://www.kommutr.com/waitlist/): Join for launch email when the iOS/Android app is ready
+- [Ride](https://www.kommutr.com/ride/): How requesting, matching, and riding works
+- [Drive](https://www.kommutr.com/drive/): Become a driver — earnings details TBD; no guaranteed earnings
+- [Business](https://www.kommutr.com/business/): Employer and partnership inquiries
+- [Support](https://www.kommutr.com/support/): Support posture and contact
+- [Greater Austin](https://www.kommutr.com/cities/austin/): Service area narrative
 - [Privacy Policy](https://www.kommutr.com/privacy/): How Kommutr handles personal data (stub until attorney-approved policy)
 - [Terms of Service](https://www.kommutr.com/terms/): Legal terms for using Kommutr (stub until attorney-approved terms)
 
-## Product context
-- [Ride](https://www.kommutr.com/#ride): How requesting, matching, and riding works in the app
-- [Drive](https://www.kommutr.com/#drive): Become a driver — earnings details TBD; no guaranteed earnings
-- [Business](https://www.kommutr.com/#business): Employer and partnership inquiries
-
 ## Optional
-- [Cities](https://www.kommutr.com/#cities): Greater Austin service area narrative
-- [Support](https://www.kommutr.com/#support): Support posture (in-app help at launch)
 - [Download](https://www.kommutr.com/#download): App store links (coming soon)

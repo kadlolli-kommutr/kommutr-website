@@ -59,7 +59,7 @@ https://www.kommutr.com/
 https://www.kommutr.com/
 ├── /                      Home
 ├── /ride/ /drive/ /business/ /support/ /cities/austin/
-├── /waitlist/             (later)
+├── /waitlist/
 ├── /privacy/ /terms/
 ├── /robots.txt /sitemap.xml /llms.txt
 └── /{indexnow-key}.txt
@@ -320,14 +320,15 @@ Note: Google’s old sitemap **ping URL is deprecated** — use GSC only.
 
 **Owner:** Agent + Marketing  
 **Depends on:** Phase 3–4  
+**Status:** ✅ **DONE** (2026-07-12)
 
 ### Scope
 Split real URLs: `/ride/`, `/drive/`, `/business/`, `/support/`, `/cities/austin/`  
 Per-page canonical + OG; expand sitemap + llms.txt; IndexNow on publish.
 
 ### Acceptance
-- [ ] Each path 200 with unique title/description
-- [ ] Sitemap complete for shipped URLs
+- [x] Each path 200 with unique title/description
+- [x] Sitemap complete for shipped URLs
 
 ---
 

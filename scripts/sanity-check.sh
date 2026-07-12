@@ -21,6 +21,8 @@ REQUIRED=(
   index.html styles.css main.js waitlist.js vercel.json
   robots.txt sitemap.xml llms.txt package.json
   privacy/index.html terms/index.html waitlist/index.html
+  ride/index.html drive/index.html business/index.html support/index.html
+  cities/austin/index.html
   api/waitlist.js
 )
 for f in "${REQUIRED[@]}"; do

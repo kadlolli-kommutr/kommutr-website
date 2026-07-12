@@ -1379,6 +1379,44 @@ body.nav-open .nav__links--center li {
   color: var(--color-accent);
 }
 
+.topic-doc h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+.topic-doc p,
+.topic-doc li {
+  color: var(--color-text-secondary);
+}
+
+.topic-doc ul,
+.topic-doc ol {
+  padding-left: 1.25rem;
+}
+
+.topic-doc a {
+  color: var(--color-accent);
+}
+
+.topic-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.topic-cta {
+  margin: 2rem 0 0;
+}
+
+@media (max-width: 900px) {
+  .topic-page .topic-nav {
+    display: none;
+  }
+  .topic-page.nav-open .topic-nav {
+    display: flex;
+  }
+}
+
 /* ---------- Reveal animation ---------- */
 .reveal {
   opacity: 0;

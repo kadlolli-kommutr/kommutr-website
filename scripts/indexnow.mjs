@@ -42,6 +42,11 @@ const keyLocation = `https://${HOST}/${keyFile}`;
 const defaultUrls = [
   `https://${HOST}/`,
   `https://${HOST}/waitlist/`,
+  `https://${HOST}/ride/`,
+  `https://${HOST}/drive/`,
+  `https://${HOST}/business/`,
+  `https://${HOST}/support/`,
+  `https://${HOST}/cities/austin/`,
   `https://${HOST}/privacy/`,
   `https://${HOST}/terms/`,
 ];
