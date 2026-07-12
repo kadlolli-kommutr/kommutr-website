@@ -20,6 +20,7 @@ section "1. Required files exist"
 REQUIRED=(
   index.html styles.css main.js vercel.json
   robots.txt sitemap.xml llms.txt package.json
+  privacy/index.html terms/index.html
 )
 for f in "${REQUIRED[@]}"; do
   if [[ -f "$f" ]]; then green "$f"; else red "missing $f"; fi

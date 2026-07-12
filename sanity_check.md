@@ -41,6 +41,7 @@ So: **one green/red check on every push and pull request.**
 - [x] Local `href` / `src` files actually exist
 - [x] Every URL in `sitemap.xml` maps to a real file
 - [x] Discoverability files use the official **www** address
+- [x] Privacy & Terms pages exist (`privacy/index.html`, `terms/index.html`) — Phase 4
 
 ---
 
