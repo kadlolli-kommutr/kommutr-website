@@ -210,40 +210,27 @@ Note: Google’s old sitemap **ping URL is deprecated** — use GSC only.
 3. Confirm `robots.txt` Sitemap line
 
 ### Acceptance
-- [ ] GSC verified; sitemap Success
-- [ ] Bing verified; sitemap OK
+- [x] GSC verified; sitemap Success (founder)
+- [x] Bing verified; sitemap OK (founder)
 
 ---
 
 ## Phase 6 — IndexNow
 
 **Owner:** Agent (files/script) + Founder (key from Bing)  
-**Depends on:** Phase 5 Bing verified (ideal)  
-**Files:** `{key}.txt`, `scripts/indexnow.mjs`, optional GitHub Action
+**Depends on:** Phase 5 Bing verified  
+**Status:** ✅ **DONE** — key proof file + `npm run indexnow`; ping after deploy
 
 ### Scope
-1. Founder generates IndexNow key in Bing WMT  
-2. Agent adds `{key}.txt` at site root (body = key only)  
-3. Agent adds script to POST changed URLs to `https://api.indexnow.org/indexnow`  
-4. Host field: `www.kommutr.com` (or `kommutr.com` per IndexNow host rules — match key file host; prefer key on **www** root since that is the serving host)  
-5. Ping only on real content changes (not scheduled spam)
-
-### Example POST body
-
-```json
-{
-  "host": "www.kommutr.com",
-  "key": "YOUR_KEY",
-  "keyLocation": "https://www.kommutr.com/YOUR_KEY.txt",
-  "urlList": ["https://www.kommutr.com/"]
-}
-```
-
-Google does **not** use IndexNow.
+1. Generate IndexNow key; host `{key}.txt` at site root (body = key only)  
+2. Script `scripts/indexnow.mjs` POSTs to `https://api.indexnow.org/indexnow`  
+3. Host: `www.kommutr.com`  
+4. Ping only on real content changes (not scheduled spam)
 
 ### Acceptance
-- [ ] Key URL → 200 text/plain  
-- [ ] Test POST → 200 or 202  
+- [x] Key file in repo  
+- [ ] Key URL → 200 text/plain (after deploy)  
+- [ ] Test POST → 200 or 202 (after deploy)  
 
 ---
 

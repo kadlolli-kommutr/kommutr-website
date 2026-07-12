@@ -226,6 +226,26 @@ else
   red "llms.txt should use absolute https://www.kommutr.com URLs"
 fi
 
+# --- 12. IndexNow key proof file ---
+section "12. IndexNow key file"
+INDEXNOW_FOUND=0
+for f in *.txt; do
+  [[ -f "$f" ]] || continue
+  case "$f" in robots.txt|llms.txt) continue ;; esac
+  if [[ "$f" =~ ^[A-Za-z0-9-]{8,128}\.txt$ ]]; then
+    key="${f%.txt}"
+    body="$(tr -d '[:space:]' <"$f")"
+    if [[ "$body" == "$key" ]]; then
+      green "IndexNow proof file present ($f)"
+      INDEXNOW_FOUND=1
+      break
+    fi
+  fi
+done
+if [[ "$INDEXNOW_FOUND" -eq 0 ]]; then
+  yellow "IndexNow key file not found (optional until Phase 6)"
+fi
+
 printf '\n======== SUMMARY ========\n'
 printf 'Passed: %s   Warnings: %s   Failed: %s\n' "$PASS" "$WARN" "$FAIL"
 if [[ "$FAIL" -gt 0 ]]; then

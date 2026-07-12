@@ -5,6 +5,7 @@
   "description": "Kommutr marketing site (static HTML)",
   "scripts": {
     "sanity": "bash scripts/sanity-check.sh",
+    "indexnow": "node scripts/indexnow.mjs",
     "deploy": "vercel deploy --prod"
   }
 }

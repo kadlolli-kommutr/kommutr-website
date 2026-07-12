@@ -165,13 +165,73 @@ Publishing with this change.
 | 2 | Help Google/Bing find your pages | ✅ Done (live) |
 | 3 | Nice previews when someone shares your link | ✅ Done |
 | 4 | Privacy and Terms pages | ✅ Done (stubs — lawyer copy later) |
-| 5 | Register the site in Google & Bing tools | Not started (needs you to log in) |
-| 6 | Tell Bing quickly when pages change | Not started |
+| 5 | Register the site in Google & Bing tools | ✅ Done |
+| 6 | Tell Bing quickly when pages change | ✅ Done (IndexNow) |
 | 7 | Extra helpers for AI browser tools | Not started |
 | 8 | Uptime monitoring & account security | Not started (mostly you) |
 | 9 | Waitlist signup page | Not started |
 | 10 | Separate pages (Ride, Drive, Business, …) | Not started |
 | — | Sanity checklist on every check-in | ✅ Added (one CI run) |
+
+---
+
+## Phase 5 — Google & Bing (you do this part)
+
+**In plain English:** Tell Google and Bing “this is our official site” and hand them the sitemap so they can find your pages faster.
+
+### Why it matters
+| | |
+|--|--|
+| **Issue** | Search engines may not know you own the domain or may be slow to discover new pages |
+| **Why fix** | Verification proves ownership; the sitemap is your official page list |
+| **What visitors notice** | Almost nothing at first — over days/weeks, the site can show up more reliably in search |
+| **Without it** | Harder to track indexing problems; slower discovery of Privacy/Terms/home |
+
+### Step A — Google Search Console
+1. Open [search.google.com/search-console](https://search.google.com/search-console) (Kommutr Google account).
+2. **Add property** → **Domain** → enter `kommutr.com` (covers www and non-www).
+3. Copy the **TXT** value Google shows → add it in **Porkbun** DNS (`@` / blank host).
+4. Back in Google → **Verify**.
+5. **Sitemaps** → submit `https://www.kommutr.com/sitemap.xml`
+6. Optional: **URL Inspection** → `https://www.kommutr.com/` → **Request indexing**
+
+### Step B — Bing Webmaster Tools
+1. Open [bing.com/webmasters](https://www.bing.com/webmasters)
+2. Add the site, or **Import from Google Search Console** (easiest after Step A)
+3. Submit the same sitemap: `https://www.kommutr.com/sitemap.xml`
+
+### When you’re done
+Reply **“Phase 5 done”** (or paste any error). Then we do **Phase 6 (IndexNow)**.
+
+### Status
+✅ **Done** (founder completed Google Search Console + Bing Webmaster, July 12, 2026).
+
+---
+
+## Phase 6 — IndexNow (tell Bing faster when pages change)
+
+**In plain English:** When we publish a new or updated page, we can ping Bing right away instead of waiting for it to re-check the sitemap.
+
+### Why it matters
+| | |
+|--|--|
+| **Issue** | Sitemap updates are picked up on Bing’s schedule (can be slow) |
+| **Why** | IndexNow is a “hey, this URL changed” notification |
+| **Visitors notice** | Almost nothing day-to-day; new pages can show in Bing/Copilot-related search sooner |
+| **Without it** | Still fine — sitemap works; just slower freshness for Bing |
+
+**Note:** Google does **not** use IndexNow. Google still uses Search Console + sitemap.
+
+### What you do once (2 minutes)
+Key was generated and hosted on the site (IndexNow allows self-generated keys; Bing verifies by fetching the public proof file).
+
+### What we added in the project
+- Proof file at site root: `{key}.txt` (public by design)
+- Script: `npm run indexnow` → notifies Bing for home, privacy, terms (or pass custom URLs)
+- After meaningful publishes, run `npm run indexnow` (or we can automate later)
+
+### Status
+✅ Implemented — run `npm run indexnow` after deploy so the proof file is live first.
 
 ---
 
