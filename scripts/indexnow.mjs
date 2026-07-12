@@ -41,6 +41,7 @@ const keyLocation = `https://${HOST}/${keyFile}`;
 
 const defaultUrls = [
   `https://${HOST}/`,
+  `https://${HOST}/waitlist/`,
   `https://${HOST}/privacy/`,
   `https://${HOST}/terms/`,
 ];

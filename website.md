@@ -255,7 +255,7 @@ Note: Google’s old sitemap **ping URL is deprecated** — use GSC only.
 ### Acceptance
 - [x] Tools register when Chrome WebMCP / `document.modelContext` is available (feature-detect)
 - [x] Unsupported browsers unchanged
-- [ ] Phase 7b deferred until waitlist form (Phase 9)
+- [x] Phase 7b deferred until waitlist form (Phase 9) → done with `join_waitlist`
 
 ---
 
@@ -291,19 +291,28 @@ Note: Google’s old sitemap **ping URL is deprecated** — use GSC only.
 
 **Owner:** Agent + Marketing + Founder  
 **Depends on:** Phase 4, Phase 7a; Legal/Marketing copy for waitlist  
-**Blocked:** backend for email storage (Supabase / form service TBD)
+**Status:** ✅ **Page + API shipped** — Founder must set `WEB3FORMS_ACCESS_KEY` on Vercel for live submits
 
 ### Scope
-1. `/waitlist/` page + form  
-2. Server or SaaS endpoint (Turnstile/CAPTCHA, rate limit, double opt-in)  
-3. Declarative WebMCP tags on form  
-4. Update sitemap + llms.txt + IndexNow ping  
-5. CSP allowlist for CAPTCHA vendor
+1. `/waitlist/` page + form — ✅  
+2. Server endpoint `/api/waitlist` (honeypot, validation, Web3Forms forward) — ✅  
+3. Declarative WebMCP tags on form (`join_waitlist`, no `toolautosubmit`) — ✅  
+4. Update sitemap + llms.txt + IndexNow defaults — ✅  
+5. CSP hash for waitlist JSON-LD — ✅  
+6. Turnstile / double opt-in — deferred (add when volume or compliance needs it)
+
+### Founder (required for E2E)
+1. Create free key at [web3forms.com](https://web3forms.com) (use `support@kommutr.com` or your inbox)
+2. Vercel → Project `kommutr-website` → Settings → Environment Variables →  
+   `WEB3FORMS_ACCESS_KEY` = (your key) for Production (+ Preview)
+3. Redeploy (or push any commit) so the env is live
+4. Test submit on https://www.kommutr.com/waitlist/
 
 ### Acceptance
-- [ ] End-to-end submit works
-- [ ] Abuse controls present
-- [ ] No PII in client-side logs
+- [x] Page live at `/waitlist/`
+- [x] Abuse controls: honeypot + server validation + no PII client logs
+- [ ] End-to-end submit works (after Web3Forms env is set)
+- [x] No PII in client-side logs
 
 ---
 

@@ -2,7 +2,7 @@
 
 A simple progress log.  
 **Site:** [www.kommutr.com](https://www.kommutr.com)  
-**Updated:** July 12, 2026 (Phases 0–8 done)
+**Updated:** July 12, 2026 (Phases 0–9 page shipped; waitlist email key TBD)
 
 Read this anytime to see what’s finished. We’ll add a short section each time a phase is done.
 
@@ -346,6 +346,40 @@ Then we move to **Phase 9 (waitlist)** when you’re ready.
 - **2FA:** done (GitHub, Vercel, Porkbun)
 - **Protect `main`:** deferred (private repo needs paid GitHub, or make public later)
 - **Email DNS:** SPF + DKIM + DMARC in place (Zoho)
+
+---
+
+## Phase 9 — Waitlist ✅ Page live (one setup step left)
+
+**In plain English:** People can go to **[www.kommutr.com/waitlist/](https://www.kommutr.com/waitlist/)** and leave their email to hear when the app launches.
+
+### What we built
+- Waitlist page with email, optional name, rider/driver interest
+- Spam honeypot (hidden field bots fill; humans don’t)
+- Server endpoint that never logs personal info in the browser
+- Links from the homepage “Join waitlist” buttons
+- Sitemap / llms.txt updated; WebMCP form tags for AI browsers (no auto-submit)
+
+### What you must do once (~5 minutes) so signups reach your inbox
+
+1. Open [https://web3forms.com](https://web3forms.com) → create a free access key for your email (e.g. `support@kommutr.com`)
+2. In **Vercel** → project **kommutr-website** → **Settings** → **Environment Variables**
+3. Add:  
+   **Name:** `WEB3FORMS_ACCESS_KEY`  
+   **Value:** (paste the key)  
+   Environments: Production (and Preview if you want)
+4. **Redeploy** the latest production deployment (Deployments → … → Redeploy) so the variable applies
+5. Submit a test on the waitlist page — you should get an email
+
+Until the key is set, the form shows a friendly message asking people to email support instead.
+
+### Not included yet (optional later)
+- CAPTCHA (Cloudflare Turnstile)
+- Double opt-in confirmation email
+- Spreadsheet/CRM sync (Web3Forms email is enough to start)
+
+### Status
+✅ Page and API shipped. 🟡 Inbox delivery waits on your Web3Forms key in Vercel.
 
 ---
 

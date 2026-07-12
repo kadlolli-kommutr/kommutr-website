@@ -18,9 +18,10 @@ section() { printf '\n== %s ==\n' "$*"; }
 # --- 1. Required files ---
 section "1. Required files exist"
 REQUIRED=(
-  index.html styles.css main.js vercel.json
+  index.html styles.css main.js waitlist.js vercel.json
   robots.txt sitemap.xml llms.txt package.json
-  privacy/index.html terms/index.html
+  privacy/index.html terms/index.html waitlist/index.html
+  api/waitlist.js
 )
 for f in "${REQUIRED[@]}"; do
   if [[ -f "$f" ]]; then green "$f"; else red "missing $f"; fi
@@ -173,6 +174,31 @@ if grep -q 'modelContext' main.js && grep -q 'navigate_section' main.js && grep 
   green "WebMCP navigate_section registered (Phase 7a)"
 else
   red "main.js missing WebMCP navigate_section registration"
+fi
+if node --check waitlist.js >/dev/null 2>&1; then
+  green "waitlist.js syntax OK"
+else
+  red "waitlist.js failed node --check"
+fi
+if node --check api/waitlist.js >/dev/null 2>&1; then
+  green "api/waitlist.js syntax OK"
+else
+  red "api/waitlist.js failed node --check"
+fi
+if grep -q 'toolname="join_waitlist"' waitlist/index.html && grep -q 'tooldescription=' waitlist/index.html; then
+  green "WebMCP declarative waitlist form (Phase 7b/9)"
+else
+  red "waitlist form missing WebMCP toolname/tooldescription"
+fi
+if grep -q 'company_url' waitlist/index.html && grep -q 'company_url' api/waitlist.js; then
+  green "waitlist honeypot present"
+else
+  red "waitlist honeypot missing"
+fi
+if grep -q 'WEB3FORMS_ACCESS_KEY' api/waitlist.js; then
+  green "waitlist API uses WEB3FORMS_ACCESS_KEY env"
+else
+  red "waitlist API missing WEB3FORMS_ACCESS_KEY handling"
 fi
 
 # --- 9. Phase 3 soft checks ---

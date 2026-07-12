@@ -43,6 +43,7 @@ So: **one green/red check on every push and pull request.**
 - [x] Every URL in `sitemap.xml` maps to a real file
 - [x] Discoverability files use the official **www** address
 - [x] Privacy & Terms pages exist (`privacy/index.html`, `terms/index.html`) — Phase 4
+- [x] Waitlist page + API + honeypot (`waitlist/`, `api/waitlist.js`) — Phase 9
 
 ---
 
