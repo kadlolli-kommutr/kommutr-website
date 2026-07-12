@@ -1,0 +1,14 @@
+# As a web crawler, which parts of Kommutr may I visit?
+# More info: https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# Optional AI crawlers — Legal may tighten later
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.kommutr.com/sitemap.xml

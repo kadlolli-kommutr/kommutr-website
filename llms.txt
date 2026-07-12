@@ -1,0 +1,17 @@
+# Kommutr
+> Commute. Connect. Conserve. Community rideshare launching in Greater Austin, Texas.
+
+Kommutr is a local mobility app for riders and drivers across Austin and nearby communities (Round Rock, Cedar Park, Leander, Liberty Hill, Georgetown, Pflugerville, and more). App Store and Google Play links are coming soon. This file is a short guide for AI assistants.
+
+## Primary
+- [Home](https://www.kommutr.com/): Marketing overview — ride, drive, pricing posture, cities, download CTAs
+
+## Product context
+- [Ride](https://www.kommutr.com/#ride): How requesting, matching, and riding works in the app
+- [Drive](https://www.kommutr.com/#drive): Become a driver — earnings details TBD; no guaranteed earnings
+- [Business](https://www.kommutr.com/#business): Employer and partnership inquiries
+
+## Optional
+- [Cities](https://www.kommutr.com/#cities): Greater Austin service area narrative
+- [Support](https://www.kommutr.com/#support): Support posture (in-app help at launch)
+- [Download](https://www.kommutr.com/#download): App store links (coming soon)
