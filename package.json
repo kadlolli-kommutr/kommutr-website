@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "Kommutr marketing site (static HTML)",
   "scripts": {
+    "sanity": "bash scripts/sanity-check.sh",
     "deploy": "vercel deploy --prod"
   }
 }

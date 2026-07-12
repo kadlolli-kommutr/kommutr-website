@@ -120,6 +120,17 @@ Live (published July 12, 2026).
 | 8 | Uptime monitoring & account security | Not started (mostly you) |
 | 9 | Waitlist signup page | Not started |
 | 10 | Separate pages (Ride, Drive, Business, …) | Not started |
+| — | Sanity checklist on every check-in | ✅ Added (one CI run) |
+
+---
+
+## Sanity checks (every check-in)
+
+**One GitHub Action** runs security, quality, and “nothing broken” checks on every push/PR.
+
+- Human guide: [`sanity_check.md`](./sanity_check.md)
+- Local: `npm run sanity`
+- CI: `.github/workflows/sanity.yml`
 
 ---
 

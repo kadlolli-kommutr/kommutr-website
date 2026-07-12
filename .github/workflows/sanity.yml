@@ -1,0 +1,28 @@
+name: Sanity check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# One workflow, one job, many steps — simple for a static marketing site.
+jobs:
+  sanity:
+    name: Security · quality · no broken files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node (for JS syntax check)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Run sanity checklist
+        run: bash scripts/sanity-check.sh
+
+      - name: Scan for committed secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
