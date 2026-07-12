@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Kommutr — Commute. Connect. Conserve. Rides in Greater Austin: Austin, Round Rock, Cedar Park, and more."
+      content="Kommutr is a community rideshare launching in Greater Austin. Join the waitlist for riders and drivers."
     />
-    <title>Kommutr — Commute. Connect. Conserve.</title>
+    <title>Kommutr — Community rides in Greater Austin</title>
 
     <link rel="canonical" href="https://www.kommutr.com/" />
 
@@ -15,10 +15,10 @@
     <meta property="og:site_name" content="Kommutr" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="https://www.kommutr.com/" />
-    <meta property="og:title" content="Kommutr — Commute. Connect. Conserve." />
+    <meta property="og:title" content="Kommutr — Community rides in Greater Austin" />
     <meta
       property="og:description"
-      content="Community rides in Greater Austin. Request a ride or become a driver — upfront pricing and local matching in the app."
+      content="Local rideshare for Austin and nearby cities. Upfront pricing in the app. Join the waitlist."
     />
     <meta property="og:image" content="https://www.kommutr.com/assets/og-image.png" />
     <meta property="og:image:width" content="1200" />
@@ -26,10 +26,10 @@
     <meta property="og:image:alt" content="Kommutr — rides in Greater Austin" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Kommutr — Commute. Connect. Conserve." />
+    <meta name="twitter:title" content="Kommutr — Community rides in Greater Austin" />
     <meta
       name="twitter:description"
-      content="Community rides in Greater Austin. Request a ride or become a driver."
+      content="Local rideshare for Austin and nearby cities. Join the waitlist."
     />
     <meta name="twitter:image" content="https://www.kommutr.com/assets/og-image.png" />
 
@@ -57,7 +57,7 @@
 
     <header class="site-header" id="site-header">
       <nav class="nav" aria-label="Primary">
-        <a class="nav__brand" href="#">
+        <a class="nav__brand" href="/">
           <img
             class="nav__logo"
             src="assets/kommutr-logo.svg"
@@ -68,11 +68,10 @@
         <ul class="nav__links nav__links--center">
           <li><a href="/ride/">Ride</a></li>
           <li><a href="/drive/">Drive</a></li>
+          <li><a href="/cities/austin/">Austin</a></li>
           <li><a href="/business/">Business</a></li>
-          <li><a href="/support/">Support</a></li>
         </ul>
         <div class="nav__actions">
-          <span class="nav__link-signin nav__link-signin--muted" title="Coming soon">Sign In</span>
           <a class="btn btn--primary btn--sm" href="/waitlist/">Join waitlist</a>
         </div>
         <button type="button" class="nav__menu-btn" aria-label="Open menu" aria-expanded="false">
@@ -82,55 +81,24 @@
     </header>
 
     <main id="main">
-      <section class="hero">
+      <section class="hero" id="top">
         <div class="hero__inner">
           <div class="hero__copy reveal">
-            <h1 class="hero__title">Your ride in Greater Austin</h1>
+            <p class="hero__eyebrow">Launching in Greater Austin</p>
+            <h1 class="hero__title">Community rides, built for here</h1>
             <p class="hero__subtitle">
-              Fast, reliable, community-driven transportation across Austin and nearby communities. In the app, pick a
-              saved place or set your destination on the map, get matched, and ride with real-time tracking and upfront
-              pricing.
+              Kommutr is a local rideshare for Austin and nearby cities. See your fare before you ride,
+              match with local drivers, and follow your trip in the app.
             </p>
             <div class="hero__ctas">
               <a class="btn btn--primary btn--lg" href="/waitlist/">Join the waitlist</a>
-              <a class="btn btn--outline btn--lg" href="/drive/">Become a Driver</a>
+              <a class="btn btn--outline btn--lg" href="/ride/">How riding works</a>
             </div>
           </div>
           <div class="hero__visual reveal">
-            <div class="hero-scene" aria-hidden="true">
-              <div class="hero-scene__mesh"></div>
-              <div class="hero-scene__blob hero-scene__blob--1"></div>
-              <div class="hero-scene__blob hero-scene__blob--2"></div>
-              <div class="hero-scene__blob hero-scene__blob--3"></div>
-              <div class="hero-scene__ring"></div>
-              <div class="hero-scene__avatars">
-                <img
-                  class="avatar hero-scene__avatar hero-scene__avatar--a"
-                  src="assets/avatars/KommutrRider.svg"
-                  alt=""
-                  width="88"
-                  height="88"
-                />
-                <img
-                  class="avatar hero-scene__avatar hero-scene__avatar--b"
-                  src="assets/avatars/KommutrDriver.svg"
-                  alt=""
-                  width="72"
-                  height="72"
-                />
-                <img
-                  class="avatar hero-scene__avatar hero-scene__avatar--c"
-                  src="assets/avatars/KommutrCity.svg"
-                  alt=""
-                  width="64"
-                  height="64"
-                />
-              </div>
-              <div class="hero-scene__mock">
-                <span class="hero-scene__mock-line"></span>
-                <span class="hero-scene__mock-line hero-scene__mock-line--short"></span>
-                <span class="hero-scene__mock-pill">Route</span>
-              </div>
+            <div class="media-slot media-slot--hero" role="img" aria-label="Photo placeholder for Austin commute">
+              <span class="media-slot__label">Photo or short video goes here</span>
+              <span class="media-slot__hint">Austin streets · phone UI · ride moment</span>
             </div>
           </div>
         </div>
@@ -138,380 +106,91 @@
 
       <section class="section section--muted" id="value">
         <div class="container">
-          <div class="tiles">
-            <article class="tile card reveal">
-              <div class="tile__avatar-row" aria-hidden="true">
-                <img
-                  class="avatar"
-                  src="assets/avatars/ReliableA.svg"
-                  alt=""
-                  width="48"
-                  height="48"
-                />
-                <img
-                  class="avatar"
-                  src="assets/avatars/ReliableB.svg"
-                  alt=""
-                  width="48"
-                  height="48"
-                />
-                <img
-                  class="avatar"
-                  src="assets/avatars/ReliableC.svg"
-                  alt=""
-                  width="48"
-                  height="48"
-                />
-              </div>
-              <h3 class="tile__title">Reliable Rides</h3>
-              <p class="tile__text">
-                Get where you need to go with trusted drivers and pricing you can understand—details in the app as we
-                roll out in Greater Austin.
+          <div class="promise-grid">
+            <article class="promise reveal">
+              <h2 class="promise__title">Upfront pricing</h2>
+              <p class="promise__text">
+                See an estimate before you commit. Final fares and fees will be clear in the app at launch.
               </p>
             </article>
-            <article class="tile card reveal">
-              <div class="tile__avatar-row" aria-hidden="true">
-                <img
-                  class="avatar"
-                  src="assets/avatars/LocalDriver1.svg"
-                  alt=""
-                  width="48"
-                  height="48"
-                />
-                <img
-                  class="avatar"
-                  src="assets/avatars/LocalDriver2.svg"
-                  alt=""
-                  width="48"
-                  height="48"
-                />
-                <img
-                  class="avatar"
-                  src="assets/avatars/LocalDriver3.svg"
-                  alt=""
-                  width="48"
-                  height="48"
-                />
-              </div>
-              <h3 class="tile__title">Local Drivers</h3>
-              <p class="tile__text">
-                Support your community by riding with local, verified drivers matched through Kommutr’s ride network.
+            <article class="promise reveal">
+              <h2 class="promise__title">Local matching</h2>
+              <p class="promise__text">
+                Built for Greater Austin — riders and drivers connected around real local trips.
               </p>
             </article>
-            <article class="tile card reveal">
-              <div class="tile__avatar-row" aria-hidden="true">
-                <img
-                  class="avatar"
-                  src="assets/avatars/SafeRider1.svg"
-                  alt=""
-                  width="48"
-                  height="48"
-                />
-                <img
-                  class="avatar"
-                  src="assets/avatars/SafeRider2.svg"
-                  alt=""
-                  width="48"
-                  height="48"
-                />
-                <img
-                  class="avatar"
-                  src="assets/avatars/SafeRider3.svg"
-                  alt=""
-                  width="48"
-                  height="48"
-                />
-              </div>
-              <h3 class="tile__title">Simple &amp; Safe</h3>
-              <p class="tile__text">
-                Built-in safety features, driver verification, and trip visibility so you stay informed from request to
-                drop-off.
+            <article class="promise reveal">
+              <h2 class="promise__title">Trip visibility</h2>
+              <p class="promise__text">
+                Follow your ride status in the app from request to drop-off, with safety tools when you need them.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="ride">
+      <section class="section" id="how">
         <div class="container container--narrow">
-          <h2 class="section__title reveal">How Kommutr works</h2>
+          <h2 class="section__title reveal">How it works</h2>
           <p class="section__lead reveal">
-            In the app, riders choose a destination and confirm the ride flow—matching and pricing are handled in the app.
-            <a href="/ride/">Full ride overview →</a>
+            Three steps in the Kommutr app. Details on the
+            <a href="/ride/">Ride</a> page.
           </p>
-          <ol class="steps">
-            <li class="steps__item reveal">
-              <span class="steps__num">1</span>
-              <div class="steps__body">
-                <div class="steps__figure steps__figure--phone" aria-hidden="true">
-                  <img
-                    class="avatar"
-                    src="assets/avatars/StepRequestRider.svg"
-                    alt=""
-                    width="52"
-                    height="52"
-                  />
-                  <img
-                    class="avatar"
-                    src="assets/avatars/StepRequestMap.svg"
-                    alt=""
-                    width="48"
-                    height="48"
-                  />
-                </div>
-                <h3 class="steps__title">Request</h3>
-                <p>
-                  Use <strong>Choose a saved place</strong> or <strong>Set destination on map</strong>, then continue
-                  in ride booking to enter your trip details.
-                </p>
+          <ol class="flow">
+            <li class="flow__item reveal">
+              <span class="flow__num">1</span>
+              <div>
+                <h3 class="flow__title">Request</h3>
+                <p>Choose a saved place or set your destination on the map, then confirm trip details.</p>
               </div>
             </li>
-            <li class="steps__item reveal">
-              <span class="steps__num">2</span>
-              <div class="steps__body">
-                <div class="steps__figure steps__figure--square" aria-hidden="true">
-                  <img
-                    class="avatar"
-                    src="assets/avatars/StepMatchRider.svg"
-                    alt=""
-                    width="56"
-                    height="56"
-                  />
-                  <img
-                    class="avatar"
-                    src="assets/avatars/StepMatchDriver.svg"
-                    alt=""
-                    width="56"
-                    height="56"
-                  />
-                </div>
-                <h3 class="steps__title">Match</h3>
-                <p>We connect you with an available driver for your route—see status and pricing as your ride updates.</p>
+            <li class="flow__item reveal">
+              <span class="flow__num">2</span>
+              <div>
+                <h3 class="flow__title">Match</h3>
+                <p>Get connected with an available driver. See status and pricing as the ride updates.</p>
               </div>
             </li>
-            <li class="steps__item reveal">
-              <span class="steps__num">3</span>
-              <div class="steps__body">
-                <div class="steps__figure steps__figure--wide" aria-hidden="true">
-                  <img
-                    class="avatar"
-                    src="assets/avatars/StepRideDriver.svg"
-                    alt=""
-                    width="56"
-                    height="56"
-                  />
-                  <img
-                    class="avatar"
-                    src="assets/avatars/StepRideRider.svg"
-                    alt=""
-                    width="56"
-                    height="56"
-                  />
-                  <img
-                    class="avatar"
-                    src="assets/avatars/StepRideTrip.svg"
-                    alt=""
-                    width="52"
-                    height="52"
-                  />
-                </div>
-                <h3 class="steps__title">Ride</h3>
-                <p>Track your trip and follow your fare in the app—ride, pay, and review when you’re done.</p>
+            <li class="flow__item reveal">
+              <span class="flow__num">3</span>
+              <div>
+                <h3 class="flow__title">Ride</h3>
+                <p>Track the trip, pay in the app, and you’re done.</p>
               </div>
             </li>
           </ol>
         </div>
       </section>
 
-      <section class="section section--muted" id="features">
+      <section class="section section--muted" id="paths">
         <div class="container">
-          <div class="feature-row reveal">
-            <div class="feature-figure" aria-hidden="true">
-              <div class="feature-figure__avatars">
-                <img
-                  class="avatar"
-                  src="assets/avatars/FeatureTrack1.svg"
-                  alt=""
-                  width="72"
-                  height="72"
-                />
-                <img
-                  class="avatar"
-                  src="assets/avatars/FeatureTrack2.svg"
-                  alt=""
-                  width="72"
-                  height="72"
-                />
-                <img
-                  class="avatar"
-                  src="assets/avatars/FeatureTrack3.svg"
-                  alt=""
-                  width="72"
-                  height="72"
-                />
-              </div>
-            </div>
-            <div class="feature-row__text">
-              <h2 class="feature-row__title">Real-time tracking</h2>
-              <p>
-                See where you are in the journey and what you’re paying—active rides and estimates surface in the home
-                experience so you’re never guessing.
-              </p>
-            </div>
-          </div>
-          <div class="feature-row feature-row--reverse reveal">
-            <div class="feature-figure" aria-hidden="true">
-              <div class="feature-figure__avatars">
-                <img
-                  class="avatar"
-                  src="assets/avatars/FeaturePrice1.svg"
-                  alt=""
-                  width="72"
-                  height="72"
-                />
-                <img
-                  class="avatar"
-                  src="assets/avatars/FeaturePrice2.svg"
-                  alt=""
-                  width="72"
-                  height="72"
-                />
-                <img
-                  class="avatar"
-                  src="assets/avatars/FeaturePrice3.svg"
-                  alt=""
-                  width="72"
-                  height="72"
-                />
-              </div>
-            </div>
-            <div class="feature-row__text">
-              <h2 class="feature-row__title">Transparent pricing</h2>
-              <p>
-                See your estimate before you commit. Fare rules and fees will be clear in the app as we finalize pricing
-                for the Greater Austin launch.
-              </p>
-            </div>
-          </div>
-          <div class="feature-row reveal">
-            <div class="feature-figure" aria-hidden="true">
-              <div class="feature-figure__avatars">
-                <img
-                  class="avatar"
-                  src="assets/avatars/FeatureSafe1.svg"
-                  alt=""
-                  width="72"
-                  height="72"
-                />
-                <img
-                  class="avatar"
-                  src="assets/avatars/FeatureSafe2.svg"
-                  alt=""
-                  width="72"
-                  height="72"
-                />
-                <img
-                  class="avatar"
-                  src="assets/avatars/FeatureSafe3.svg"
-                  alt=""
-                  width="72"
-                  height="72"
-                />
-              </div>
-            </div>
-            <div class="feature-row__text">
-              <h2 class="feature-row__title">Safety first</h2>
-              <p>
-                Emergency tools, verification, and support workflows are part of the Kommutr app—share trip context and
-                get help when you need it.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="panels">
-        <div class="container">
-          <div class="panels">
-            <div class="panel card reveal" id="rider-panel">
-              <img
-                class="avatar panel__avatar"
-                src="assets/avatars/KommutrRiderPanel.svg"
-                alt=""
-                width="120"
-                height="120"
-              />
-              <h2 class="panel__title">Ride with confidence</h2>
-              <ul class="panel__list">
-                <li>Upfront pricing before you ride</li>
-                <li>Local drivers matched to your trip</li>
-                <li>Built for the Greater Austin area</li>
+          <div class="paths">
+            <article class="path-card reveal">
+              <p class="path-card__eyebrow">For riders</p>
+              <h2 class="path-card__title">Get around Austin</h2>
+              <ul class="path-card__list">
+                <li>Fare estimate before you ride</li>
+                <li>Local drivers on your route</li>
+                <li>Live trip tracking in the app</li>
               </ul>
-              <a class="btn btn--primary" href="/waitlist/">Join waitlist</a>
-            </div>
-            <div class="panel card reveal" id="drive">
-              <img
-                class="avatar panel__avatar"
-                src="assets/avatars/KommutrDriverPanel.svg"
-                alt=""
-                width="120"
-                height="120"
-              />
-              <h2 class="panel__title">Drive with Kommutr</h2>
-              <ul class="panel__list">
-                <li>Earnings and commission details (TBD)</li>
-                <li>Flexible hours on your schedule</li>
-                <li>Payouts via the app’s payment rails</li>
+              <div class="path-card__actions">
+                <a class="btn btn--primary" href="/waitlist/">Join as a rider</a>
+                <a class="btn btn--outline" href="/ride/">Learn more</a>
+              </div>
+            </article>
+            <article class="path-card reveal" id="drive">
+              <p class="path-card__eyebrow">For drivers</p>
+              <h2 class="path-card__title">Drive on your schedule</h2>
+              <ul class="path-card__list">
+                <li>Flexible hours</li>
+                <li>Payouts in the app</li>
+                <li>Clear earnings terms before launch — no figures published yet</li>
               </ul>
-              <a class="btn btn--primary" href="/waitlist/">Join as a driver</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--muted" id="testimonials">
-        <div class="container">
-          <h2 class="section__title reveal">What riders &amp; drivers say</h2>
-          <div class="testimonials">
-            <blockquote class="testimonial card reveal">
-              <img
-                class="avatar testimonial__avatar"
-                src="assets/avatars/AlexRoundRock.svg"
-                alt=""
-                width="72"
-                height="72"
-              />
-              <p class="testimonial__quote">
-                “Finally an app that shows the fare before I get in. Kommutr feels straightforward and local.”
-              </p>
-              <footer class="testimonial__meta"><strong>Alex M.</strong> · Round Rock</footer>
-            </blockquote>
-            <blockquote class="testimonial card reveal">
-              <img
-                class="avatar testimonial__avatar"
-                src="assets/avatars/JordanCedar.svg"
-                alt=""
-                width="72"
-                height="72"
-              />
-              <p class="testimonial__quote">
-                “I like knowing how pricing works. The dashboard keeps my trips and payouts in one place.”
-              </p>
-              <footer class="testimonial__meta"><strong>Jordan T.</strong> · Cedar Park</footer>
-            </blockquote>
-            <blockquote class="testimonial card reveal">
-              <img
-                class="avatar testimonial__avatar"
-                src="assets/avatars/AveryAustin.svg"
-                alt=""
-                width="72"
-                height="72"
-              />
-              <p class="testimonial__quote">
-                “Tracking the ride and seeing the route in the app makes every trip less stressful.”
-              </p>
-              <footer class="testimonial__meta"><strong>Avery K.</strong> · Austin</footer>
-            </blockquote>
+              <div class="path-card__actions">
+                <a class="btn btn--primary" href="/waitlist/">Join as a driver</a>
+                <a class="btn btn--outline" href="/drive/">Learn more</a>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -520,119 +199,34 @@
         <div class="container container--narrow">
           <h2 class="section__title reveal">Greater Austin</h2>
           <p class="section__lead reveal">
-            Kommutr is focused on Austin and surrounding communities—whether you’re commuting downtown or across the
-            metro. See the
-            <a href="/cities/austin/">Greater Austin page</a> for the service area overview.
+            We’re focused on Austin and nearby communities — downtown commutes and metro trips alike.
           </p>
-          <p class="cities-list reveal">
-            <strong>Austin</strong> and nearby areas including
-            <strong>Round Rock</strong>, <strong>Cedar Park</strong>, <strong>Leander</strong>,
-            <strong>Liberty Hill</strong>, <strong>Georgetown</strong>, <strong>Pflugerville</strong>, and more.
+          <ul class="city-chips reveal">
+            <li>Austin</li>
+            <li>Round Rock</li>
+            <li>Cedar Park</li>
+            <li>Leander</li>
+            <li>Liberty Hill</li>
+            <li>Georgetown</li>
+            <li>Pflugerville</li>
+          </ul>
+          <p class="section__more reveal">
+            <a href="/cities/austin/">Service area overview →</a>
           </p>
         </div>
       </section>
 
-      <section class="section" id="pricing">
-        <div class="container container--narrow">
-          <h2 class="section__title reveal">Pricing &amp; transparency</h2>
-          <p class="section__lead reveal">
-            We’re committed to fair, understandable pricing. Final numbers—including driver commission—are still being
-            finalized; exact fares and fees will be shown in the app before you ride.
+      <section class="section section--cta" id="waitlist-cta">
+        <div class="container container--narrow reveal">
+          <h2 class="section__title">Be first when we launch</h2>
+          <p class="section__lead">
+            The iOS and Android apps are coming soon. Leave your email and we’ll notify you —
+            riders and drivers welcome.
           </p>
-          <div class="table-wrap reveal">
-            <table class="compare-table">
-              <thead>
-                <tr>
-                  <th scope="col">Category</th>
-                  <th scope="col">Kommutr</th>
-                  <th scope="col">Industry average</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Commission</th>
-                  <td><strong>TBD</strong> — we’ll publish clear driver terms before launch.</td>
-                  <td>Often higher or opaque</td>
-                </tr>
-                <tr>
-                  <th scope="row">Payout speed</th>
-                  <td><strong>Fast</strong> (in-app payouts)</td>
-                  <td>2–5 days typical</td>
-                </tr>
-                <tr>
-                  <th scope="row">Surge pricing</th>
-                  <td><strong>Fair &amp; capped</strong> where applicable</td>
-                  <td>Often uncapped</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="cta-row">
+            <a class="btn btn--primary btn--lg" href="/waitlist/">Join the waitlist</a>
+            <a class="btn btn--outline btn--lg" href="/business/">Business inquiries</a>
           </div>
-          <p class="pricing-note reveal">
-            Rider fares, platform fees, and driver commission will be spelled out in the app and in our legal terms once
-            finalized.
-          </p>
-        </div>
-      </section>
-
-      <section class="section section--muted" id="business">
-        <div class="container container--narrow">
-          <h2 class="section__title reveal">Business</h2>
-          <p class="section__lead reveal">
-            Need employee rides, events, or recurring trips? Kommutr is built for mobility—
-            <a href="/business/">learn about business programs</a>
-            or contact us to discuss partnerships.
-          </p>
-          <p class="business-note reveal">Business contact: <strong>coming soon</strong>.</p>
-        </div>
-      </section>
-
-      <section class="download" id="download">
-        <div class="container download__inner">
-          <div class="download__copy reveal">
-            <h2 class="download__title">Kommutr in your pocket</h2>
-            <p class="download__text">
-              The Kommutr app is <strong>coming soon</strong> for iOS and Android. Join the waitlist for launch
-              updates, then check back here for App Store and Google Play links.
-            </p>
-            <div class="download__badges">
-              <a class="btn btn--primary" href="/waitlist/">Join the waitlist</a>
-              <span class="store-badge store-badge--soon" role="status">App Store — coming soon</span>
-              <span class="store-badge store-badge--soon" role="status">Google Play — coming soon</span>
-            </div>
-          </div>
-          <div class="download__visual reveal">
-            <div class="download__visual-inner">
-              <div class="download__avatar-row" aria-hidden="true">
-                <img
-                  class="avatar"
-                  src="assets/avatars/DownloadRider.svg"
-                  alt=""
-                  width="64"
-                  height="64"
-                />
-                <img
-                  class="avatar"
-                  src="assets/avatars/DownloadDriver.svg"
-                  alt=""
-                  width="64"
-                  height="64"
-                />
-              </div>
-              <div class="placeholder placeholder--phone" aria-hidden="true">
-                <span class="placeholder__label">App mockup</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="support">
-        <div class="container container--narrow">
-          <h2 class="section__title reveal">Support</h2>
-          <p class="section__lead reveal">
-            Web support, help center, and public contact options are <strong>not available yet</strong>. See our
-            <a href="/support/">Support</a> page, or use in-product help when the app launches.
-          </p>
         </div>
       </section>
     </main>
@@ -652,15 +246,14 @@
           <ul>
             <li><a href="/waitlist/">Join waitlist</a></li>
             <li><a href="/ride/">How riding works</a></li>
-            <li><a href="/cities/austin/">Cities</a></li>
-            <li><a href="/#features">Safety</a></li>
+            <li><a href="/#how">How it works</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h3 class="footer__heading">Drive</h3>
           <ul>
-            <li><a href="/drive/">Become a Driver</a></li>
-            <li><a href="/#pricing">Earnings</a></li>
+            <li><a href="/drive/">Become a driver</a></li>
+            <li><a href="/waitlist/">Driver waitlist</a></li>
           </ul>
         </div>
         <div class="footer__col">

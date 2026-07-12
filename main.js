@@ -55,24 +55,20 @@
   var modelContext = document.modelContext || navigator.modelContext;
   if (modelContext && typeof modelContext.registerTool === "function") {
     var SECTIONS = [
+      "top",
       "value",
-      "ride",
-      "features",
-      "panels",
+      "how",
+      "paths",
       "drive",
-      "testimonials",
       "cities",
-      "pricing",
-      "business",
-      "download",
-      "support",
+      "waitlist-cta",
     ];
 
     Promise.resolve(
       modelContext.registerTool({
         name: "navigate_section",
         description:
-          "Scroll the Kommutr homepage to a named section so the user can read it. Use for ride, drive, download, pricing, cities, support, and related sections.",
+          "Scroll the Kommutr homepage to a named section so the user can read it. Use for how it works, rider/driver paths, cities, or waitlist.",
         inputSchema: {
           type: "object",
           properties: {
