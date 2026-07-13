@@ -24,8 +24,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: clip;
-  max-width: 100%;
 }
 
 body {
@@ -36,9 +34,6 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
-  overflow-x: clip;
-  max-width: 100%;
-  width: 100%;
 }
 
 .skip-link {
@@ -74,19 +69,13 @@ img {
 .site-header {
   position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 100;
   background: #ffffff;
   transition: box-shadow 0.2s ease;
   border-bottom: 1px solid transparent;
-  overflow: visible;
   width: 100%;
-  max-width: 100%;
   margin: 0;
   box-sizing: border-box;
-  padding-left: env(safe-area-inset-left, 0px);
-  padding-right: env(safe-area-inset-right, 0px);
 }
 
 .site-header.is-scrolled {
@@ -102,31 +91,10 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  overflow: visible;
+  gap: 0.75rem;
   position: relative;
   width: 100%;
   box-sizing: border-box;
-}
-
-/* Mobile: fixed full-bleed bar (avoids sticky width gap on iOS) */
-@media (max-width: 899px) {
-  .site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: auto;
-    max-width: none;
-  }
-
-  body {
-    padding-top: var(--header-h);
-  }
-
-  .legal-page .site-header {
-    position: fixed;
-  }
 }
 
 .nav__brand {
@@ -143,9 +111,9 @@ img {
   display: block;
   width: auto;
   height: 36px;
-  max-width: min(70vw, 280px);
+  max-width: min(58vw, 220px);
   max-height: 36px;
-  flex-shrink: 0;
+  flex-shrink: 1;
   object-fit: contain;
   object-position: left center;
 }
@@ -268,9 +236,7 @@ body.nav-open .nav__links--center {
   max-width: none;
   margin: 0;
   background: #ffffff;
-  padding: 0.5rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
-  padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
-  padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
+  padding: 0.5rem 1.25rem 1.5rem;
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-md);
   gap: 0;
