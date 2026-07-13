@@ -2,9 +2,19 @@
   const header = document.getElementById("site-header");
   const yearEl = document.getElementById("year");
   const menuBtn = document.querySelector(".nav__menu-btn");
+  const navLinks = document.querySelector(".nav__links--center");
 
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
+  }
+
+  // Mobile menu: Join waitlist as a full-width button (not in the logo row)
+  if (navLinks && !navLinks.querySelector(".nav__mobile-cta")) {
+    var ctaItem = document.createElement("li");
+    ctaItem.className = "nav__mobile-cta";
+    ctaItem.innerHTML =
+      '<a class="btn btn--primary" href="/waitlist/">Join waitlist</a>';
+    navLinks.appendChild(ctaItem);
   }
 
   function applyScrolled() {
@@ -12,20 +22,50 @@
     header.classList.toggle("is-scrolled", window.scrollY > 8);
   }
 
-  window.addEventListener("scroll", applyScrolled, { passive: true });
+  // Back to top
+  var backBtn = document.createElement("button");
+  backBtn.type = "button";
+  backBtn.className = "back-to-top";
+  backBtn.setAttribute("aria-label", "Back to top");
+  backBtn.innerHTML =
+    '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>';
+  document.body.appendChild(backBtn);
+
+  function applyBackToTop() {
+    var show = window.scrollY > 320;
+    backBtn.classList.toggle("is-visible", show);
+  }
+
+  backBtn.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      applyScrolled();
+      applyBackToTop();
+    },
+    { passive: true }
+  );
   applyScrolled();
+  applyBackToTop();
 
   if (menuBtn) {
     menuBtn.addEventListener("click", function () {
       const open = document.body.classList.toggle("nav-open");
       menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     });
   }
 
-  document.querySelectorAll('.nav__links a[href^="#"]').forEach(function (link) {
+  document.querySelectorAll(".nav__links a").forEach(function (link) {
     link.addEventListener("click", function () {
       document.body.classList.remove("nav-open");
-      if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
+      if (menuBtn) {
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.setAttribute("aria-label", "Open menu");
+      }
     });
   });
 
@@ -89,7 +129,10 @@
             return 'Section "' + section + '" was not found on this page.';
           }
           document.body.classList.remove("nav-open");
-          if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
+          if (menuBtn) {
+            menuBtn.setAttribute("aria-expanded", "false");
+            menuBtn.setAttribute("aria-label", "Open menu");
+          }
           el.scrollIntoView({ behavior: "smooth", block: "start" });
           if (history.replaceState) {
             history.replaceState(null, "", "#" + section);

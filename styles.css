@@ -73,8 +73,8 @@ img {
   background: var(--color-bg);
   transition: box-shadow 0.2s ease;
   border-bottom: 1px solid transparent;
-  overflow-x: visible;
-  overflow-y: visible;
+  overflow: visible;
+  width: 100%;
 }
 
 .site-header.is-scrolled {
@@ -92,6 +92,8 @@ img {
   justify-content: space-between;
   gap: 1rem;
   overflow: visible;
+  position: relative;
+  width: 100%;
 }
 
 .nav__brand {
@@ -100,15 +102,16 @@ img {
   align-items: center;
   overflow: visible;
   padding: 0.2rem 0;
+  min-width: 0;
 }
 
 /* Global img { max-width: 100% } clips SVG logos in flex; reset in header */
 .site-header img.nav__logo {
   display: block;
   width: auto;
-  height: 40px;
-  max-width: min(92vw, 340px);
-  max-height: 40px;
+  height: 36px;
+  max-width: min(70vw, 280px);
+  max-height: 36px;
   flex-shrink: 0;
   object-fit: contain;
   object-position: left center;
@@ -154,63 +157,163 @@ img {
 .nav__menu-btn {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
-  padding: 0.5rem;
-  background: none;
-  border: none;
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  padding: 0;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
   cursor: pointer;
+  color: #000000;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .nav__menu-btn span {
   display: block;
-  width: 22px;
+  width: 18px;
   height: 2px;
-  background: var(--color-text);
+  background-color: #000000;
   border-radius: 1px;
+  opacity: 1;
+  flex-shrink: 0;
 }
 
-@media (min-width: 900px) {
-  .nav__links {
-    display: flex;
-  }
-  .nav__menu-btn {
+.nav__menu-btn[aria-expanded="true"] {
+  border-color: var(--color-text);
+}
+
+/* Mobile: logo + hamburger only (waitlist lives in menu + page CTAs) */
+@media (max-width: 899px) {
+  .nav:has(.nav__menu-btn) .nav__actions {
     display: none;
   }
 }
 
-/* Mobile nav open */
+@media (min-width: 900px) {
+  .site-header img.nav__logo {
+    height: 40px;
+    max-height: 40px;
+    max-width: min(92vw, 340px);
+  }
+
+  .nav__links {
+    display: flex;
+  }
+
+  .nav__actions {
+    display: flex;
+  }
+
+  .nav__menu-btn {
+    display: none;
+  }
+
+  .nav__mobile-cta {
+    display: none !important;
+  }
+}
+
+/* Mobile nav open — full viewport width */
+body.nav-open {
+  overflow: hidden;
+}
+
 body.nav-open .nav__links--center {
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   top: var(--header-h);
   left: 0;
   right: 0;
-  background: var(--color-bg);
-  padding: 1rem 1.25rem 1.5rem;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  background: #ffffff;
+  padding: 0.5rem 1.25rem 1.5rem;
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-md);
   gap: 0;
+  z-index: 99;
+  box-sizing: border-box;
 }
 
 body.nav-open .nav__links--center li {
-  padding: 0.75rem 0;
+  padding: 0.85rem 0;
   border-bottom: 1px solid var(--color-border);
 }
 
+body.nav-open .nav__links--center .nav__mobile-cta {
+  border-bottom: none;
+  padding-top: 1.15rem;
+}
+
+body.nav-open .nav__links--center .nav__mobile-cta a {
+  width: 100%;
+}
+
 @media (min-width: 900px) {
+  body.nav-open {
+    overflow: auto;
+  }
+
   body.nav-open .nav__links--center {
     position: static;
     flex-direction: row;
+    width: auto;
     padding: 0;
     border: none;
     box-shadow: none;
     gap: 2rem;
+    background: transparent;
   }
+
   body.nav-open .nav__links--center li {
     border: none;
     padding: 0;
   }
+}
+
+/* Back to top — appears after scroll */
+.back-to-top {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 1.25rem;
+  z-index: 90;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #000000;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top svg {
+  width: 18px;
+  height: 18px;
+  display: block;
 }
 
 /* ---------- Buttons ---------- */
@@ -1620,6 +1723,7 @@ body.nav-open .nav__links--center li {
   .topic-page .topic-nav {
     display: none;
   }
+  body.nav-open .topic-nav,
   .topic-page.nav-open .topic-nav {
     display: flex;
   }
