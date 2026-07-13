@@ -500,10 +500,11 @@ body.nav-open .nav__links--center li {
 
 .city-chips {
   list-style: none;
-  margin: 1.5rem 0 0;
+  margin: 1.5rem auto 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.5rem;
 }
 
@@ -517,6 +518,7 @@ body.nav-open .nav__links--center li {
 
 .section__more {
   margin: 1.25rem 0 0;
+  text-align: center;
 }
 
 .section__more a {
