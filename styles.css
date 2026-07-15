@@ -409,11 +409,15 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: 4rem 0;
 }
 
 .section--muted {
   background: var(--color-bg-muted);
+}
+
+#value.section {
+  padding-top: 2.75rem;
 }
 
 
@@ -445,7 +449,7 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
 
 /* ---------- Hero ---------- */
 .hero {
-  padding: 3.25rem 0 3.75rem;
+  padding: 2rem 0 2rem;
   background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-muted) 100%);
   overflow-x: hidden;
 }
@@ -466,8 +470,13 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
   .hero__inner {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 3rem;
-    padding-top: 1.25rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0;
+    align-items: start;
+  }
+
+  .hero__copy {
+    padding-top: 0.25rem;
   }
 }
 
@@ -1946,6 +1955,20 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
 
 .waitlist-banner--success a {
   color: var(--color-accent);
+}
+
+.topic-photo {
+  margin: 0 0 1.75rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--color-bg-muted);
+}
+
+.topic-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .topic-doc h2 {
