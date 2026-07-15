@@ -9,7 +9,7 @@
  */
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const INTERESTS = new Set(["rider", "driver", "both"]);
+const INTERESTS = new Set(["rider", "driver", "both", "enterprise"]);
 
 function readBody(req) {
   if (req.body && typeof req.body === "object") return Promise.resolve(req.body);

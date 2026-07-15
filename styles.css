@@ -338,14 +338,6 @@ img {
     background: transparent;
   }
 
-  .hero__ctas .cta-long {
-    display: none;
-  }
-
-  .hero__ctas .cta-short {
-    display: inline;
-  }
-
   .hero__visual {
     order: 2;
   }
@@ -688,6 +680,21 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
 
 .hero__ctas .cta-short {
   display: none;
+}
+
+.hero__ctas .cta-long {
+  display: inline;
+}
+
+/* Mobile: shorter labels must win over the desktop hide rule above */
+@media (max-width: 899px) {
+  .hero__ctas .cta-long {
+    display: none !important;
+  }
+
+  .hero__ctas .cta-short {
+    display: inline !important;
+  }
 }
 
 .hero__visual {

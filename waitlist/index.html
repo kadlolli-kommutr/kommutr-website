@@ -106,7 +106,7 @@
           method="post"
           novalidate
           toolname="join_waitlist"
-          tooldescription="Join the Kommutr launch waitlist by submitting an email and whether you want to ride, drive, or both. Optional comment on how we can better serve you. Do not auto-submit; the user must confirm."
+          tooldescription="Join the Kommutr launch waitlist by submitting an email and interest (ride, drive, both, or enterprise). Optional comment on features that would improve the commute. Do not auto-submit; the user must confirm."
         >
           <div class="waitlist-field">
             <label for="email">Email</label>
@@ -141,11 +141,12 @@
               id="interest"
               name="interest"
               required
-              toolparamdescription="Whether the person wants to ride, drive, or both"
+              toolparamdescription="Whether the person wants to ride, drive, both, or is exploring enterprise / business use"
             >
               <option value="rider">Riding</option>
               <option value="driver">Driving</option>
               <option value="both" selected>Both</option>
+              <option value="enterprise">Enterprise</option>
             </select>
           </div>
 
@@ -159,8 +160,8 @@
               name="comments"
               rows="4"
               maxlength="1000"
-              placeholder="Routes you take, schedule, what would make you switch…"
-              toolparamdescription="Optional feedback on how Kommutr can better serve this person"
+              placeholder="What features would make your commute better? Tell us — we’ll get on it."
+              toolparamdescription="Optional feedback on features or how Kommutr can better serve this person"
             ></textarea>
           </div>
 
