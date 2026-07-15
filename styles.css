@@ -188,6 +188,8 @@ img {
   border-radius: 1px;
   opacity: 1;
   flex-shrink: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  transform-origin: center;
 }
 
 .nav__menu-btn[aria-expanded="true"] {
@@ -198,6 +200,103 @@ img {
 @media (max-width: 899px) {
   .nav:has(.nav__menu-btn) .nav__actions {
     display: none;
+  }
+
+  /* Burger → X when menu open */
+  .nav__menu-btn[aria-expanded="true"] {
+    gap: 0;
+  }
+
+  .nav__menu-btn[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav__menu-btn[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .nav__menu-btn[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Blur page content; keep header + menu sharp */
+  body.nav-open main,
+  body.nav-open .footer {
+    filter: blur(6px);
+    opacity: 0.55;
+    pointer-events: none;
+    user-select: none;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+  }
+
+  body.nav-open .back-to-top {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  body.nav-open .site-header {
+    position: relative;
+    z-index: 100;
+  }
+
+  body.nav-open .nav__links--center {
+    z-index: 101;
+  }
+
+  /* Hero: center copy + CTAs on one line */
+  .hero__copy {
+    text-align: center;
+  }
+
+  .hero__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__ctas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .hero__ctas .btn {
+    flex: 1 1 0;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    padding: 0.65rem 0.5rem;
+    font-size: 0.8125rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .hero__ctas .cta-long {
+    display: none;
+  }
+
+  .hero__ctas .cta-short {
+    display: inline;
+  }
+
+  /* Footer columns centered on mobile */
+  .footer__grid {
+    text-align: center;
+  }
+
+  .footer__col ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__bottom {
+    text-align: center;
   }
 }
 
@@ -515,6 +614,10 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
   flex-wrap: wrap;
   gap: 0.75rem;
   max-width: 100%;
+}
+
+.hero__ctas .cta-short {
+  display: none;
 }
 
 .hero__visual {

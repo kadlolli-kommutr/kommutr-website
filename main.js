@@ -9,7 +9,12 @@
   }
 
   // Mobile menu: Join waitlist as a full-width button (not in the logo row)
-  if (navLinks && !navLinks.querySelector(".nav__mobile-cta")) {
+  // Skip on the waitlist page — user is already there
+  if (
+    navLinks &&
+    !navLinks.querySelector(".nav__mobile-cta") &&
+    !document.body.classList.contains("waitlist-page")
+  ) {
     var ctaItem = document.createElement("li");
     ctaItem.className = "nav__mobile-cta";
     ctaItem.innerHTML =
@@ -59,14 +64,24 @@
     });
   }
 
+  function closeNav() {
+    document.body.classList.remove("nav-open");
+    if (menuBtn) {
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.setAttribute("aria-label", "Open menu");
+    }
+  }
+
   document.querySelectorAll(".nav__links a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      document.body.classList.remove("nav-open");
-      if (menuBtn) {
-        menuBtn.setAttribute("aria-expanded", "false");
-        menuBtn.setAttribute("aria-label", "Open menu");
-      }
-    });
+    link.addEventListener("click", closeNav);
+  });
+
+  // Tap outside menu (on blurred page) closes it — mobile only behavior via nav-open
+  document.addEventListener("click", function (e) {
+    if (!document.body.classList.contains("nav-open")) return;
+    if (window.matchMedia("(min-width: 900px)").matches) return;
+    if (e.target.closest(".nav")) return;
+    closeNav();
   });
 
   const revealEls = document.querySelectorAll(".reveal");

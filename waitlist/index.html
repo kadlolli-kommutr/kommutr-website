@@ -55,7 +55,7 @@
     <link rel="stylesheet" href="/assets/fonts.css" />
 <link rel="stylesheet" href="/styles.css" />
   </head>
-  <body class="legal-page waitlist-page">
+  <body class="legal-page waitlist-page topic-page">
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header is-scrolled" id="site-header">
@@ -68,9 +68,15 @@
             decoding="async"
           />
         </a>
-        <div class="nav__actions">
-          <a class="btn btn--primary btn--sm" href="/waitlist/">Join waitlist</a>
-        </div>
+        <ul class="nav__links nav__links--center topic-nav">
+          <li><a href="/ride/">Ride</a></li>
+          <li><a href="/drive/">Drive</a></li>
+          <li><a href="/business/">Business</a></li>
+          <li><a href="/support/">Support</a></li>
+        </ul>
+        <button type="button" class="nav__menu-btn" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </nav>
     </header>
 
