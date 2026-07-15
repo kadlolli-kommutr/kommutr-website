@@ -165,8 +165,8 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;
   flex: 0 0 auto;
+  position: relative;
   width: 44px;
   height: 44px;
   margin-left: auto;
@@ -178,18 +178,34 @@ img {
   color: #000000;
   -webkit-appearance: none;
   appearance: none;
+  overflow: visible;
 }
 
 .nav__menu-btn span {
   display: block;
+  position: absolute;
+  left: 50%;
   width: 18px;
   height: 2px;
+  margin-left: -9px;
   background-color: #000000;
   border-radius: 1px;
   opacity: 1;
-  flex-shrink: 0;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.2s ease, top 0.2s ease, opacity 0.2s ease;
   transform-origin: center;
+}
+
+/* Closed: classic 3-line burger */
+.nav__menu-btn span:nth-child(1) {
+  top: 14px;
+}
+
+.nav__menu-btn span:nth-child(2) {
+  top: 21px;
+}
+
+.nav__menu-btn span:nth-child(3) {
+  top: 28px;
 }
 
 .nav__menu-btn[aria-expanded="true"] {
@@ -202,13 +218,10 @@ img {
     display: none;
   }
 
-  /* Burger → X when menu open */
-  .nav__menu-btn[aria-expanded="true"] {
-    gap: 0;
-  }
-
+  /* Burger → compact centered X (fully inside the button) */
   .nav__menu-btn[aria-expanded="true"] span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    top: 21px;
+    transform: rotate(45deg);
   }
 
   .nav__menu-btn[aria-expanded="true"] span:nth-child(2) {
@@ -217,7 +230,8 @@ img {
   }
 
   .nav__menu-btn[aria-expanded="true"] span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    top: 21px;
+    transform: rotate(-45deg);
   }
 
   /* Blur page content; keep header + menu sharp */
@@ -236,23 +250,47 @@ img {
     pointer-events: none !important;
   }
 
+  /* Pin logo bar to the visual viewport while menu is open.
+     (sticky → relative was dropping it off-screen when Chrome’s URL bar hides) */
   body.nav-open .site-header {
-    position: relative;
-    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    z-index: 200;
+    background: #ffffff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    transform: translateZ(0);
   }
 
   body.nav-open .nav__links--center {
-    z-index: 101;
+    z-index: 201;
+    top: var(--header-h);
   }
 
-  /* Hero: center copy + CTAs on one line */
+  /* Hero: center copy; CTAs match path-card buttons; photo below */
+  .hero {
+    padding: 1.75rem 0 2rem;
+    overflow: visible;
+  }
+
+  .hero__inner {
+    gap: 1.75rem;
+    align-items: stretch;
+  }
+
   .hero__copy {
     text-align: center;
+    overflow: visible;
   }
 
   .hero__subtitle {
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1.25rem;
   }
 
   .hero__ctas {
@@ -260,20 +298,44 @@ img {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-    align-items: stretch;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 0.65rem;
     width: 100%;
+    overflow: visible;
   }
 
-  .hero__ctas .btn {
+  .hero__ctas .btn,
+  .hero__ctas .btn--lg,
+  .hero__ctas .btn--soft {
     flex: 1 1 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: auto;
     max-width: none;
     min-width: 0;
-    padding: 0.65rem 0.5rem;
-    font-size: 0.8125rem;
-    line-height: 1.2;
+    min-height: 44px;
+    height: auto;
+    padding: 0.65rem 1rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.35;
     white-space: nowrap;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+
+  /* Match “Learn more” outline style on the secondary CTA */
+  .hero__ctas .btn--soft {
+    background: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+
+  .hero__ctas .btn--soft:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: transparent;
   }
 
   .hero__ctas .cta-long {
@@ -282,6 +344,14 @@ img {
 
   .hero__ctas .cta-short {
     display: inline;
+  }
+
+  .hero__visual {
+    order: 2;
+  }
+
+  .hero__copy {
+    order: 1;
   }
 
   /* Footer columns centered on mobile */
@@ -344,7 +414,7 @@ body.nav-open .nav__links--center {
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-md);
   gap: 0;
-  z-index: 99;
+  z-index: 201;
   box-sizing: border-box;
 }
 
@@ -747,11 +817,13 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
   flex-direction: column;
   gap: 0;
   position: relative;
+  --timeline-rail: 4.5rem;
+  --timeline-dash: #e2e8f0;
 }
 
 .timeline__item {
   display: grid;
-  grid-template-columns: 4.5rem 1fr;
+  grid-template-columns: var(--timeline-rail) 1fr;
   gap: 1rem;
   align-items: start;
   position: relative;
@@ -761,7 +833,7 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 4.5rem;
+  width: var(--timeline-rail);
 }
 
 .timeline__num {
@@ -772,16 +844,28 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
   color: #fecaca;
   text-align: center;
   flex-shrink: 0;
+  width: 100%;
 }
 
-/* Short dashed segment under each number — same look on home + topic pages */
+/* Centered 2px dash — border-left on width:0 sits off-center */
 .timeline__connector {
   display: block;
   flex: 0 0 auto;
-  width: 0;
+  width: 2px;
   height: 1.75rem;
   margin: 0.35rem 0 0.1rem;
-  border-left: 2px dashed #e2e8f0;
+  padding: 0;
+  border: none;
+  background-image: linear-gradient(
+    to bottom,
+    var(--timeline-dash) 0,
+    var(--timeline-dash) 45%,
+    transparent 45%,
+    transparent 100%
+  );
+  background-size: 2px 0.55rem;
+  background-repeat: repeat-y;
+  background-position: center top;
 }
 
 .timeline__item:last-child .timeline__connector {
@@ -829,6 +913,63 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
 
 .topic-doc .timeline__body p:last-child {
   font-size: 0.9875rem;
+}
+
+/* Mobile: keep dashed rail centered under numbers on home + subpages */
+@media (max-width: 899px) {
+  .timeline {
+    --timeline-rail: 2.75rem;
+  }
+
+  .timeline__item {
+    gap: 0.85rem;
+    align-items: stretch;
+  }
+
+  .timeline__rail {
+    align-self: stretch;
+  }
+
+  .timeline__num {
+    font-size: 2.35rem;
+    position: relative;
+    z-index: 1;
+    background: var(--color-bg);
+    box-shadow: 0 0 0 4px var(--color-bg);
+  }
+
+  .topic-doc .timeline__num,
+  .legal-page .timeline__num {
+    background: #ffffff;
+    box-shadow: 0 0 0 4px #ffffff;
+  }
+
+  .timeline__connector {
+    display: none;
+  }
+
+  .timeline__item:not(:last-child) .timeline__rail::after {
+    content: "";
+    display: block;
+    width: 2px;
+    flex: 1 1 auto;
+    min-height: 1.5rem;
+    margin: 0.3rem auto 0;
+    background-image: linear-gradient(
+      to bottom,
+      var(--timeline-dash) 0,
+      var(--timeline-dash) 45%,
+      transparent 45%,
+      transparent 100%
+    );
+    background-size: 2px 0.5rem;
+    background-repeat: repeat-y;
+    background-position: center top;
+  }
+
+  .timeline__body {
+    padding-bottom: 1.5rem;
+  }
 }
 
 .flow {
@@ -1905,6 +2046,39 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
   top: 0;
 }
 
+/* Keep logo bar pinned on subpages when mobile menu is open
+   (legal-page sticky must not win over the open-menu fixed header) */
+@media (max-width: 899px) {
+  body.nav-open .site-header,
+  body.legal-page.nav-open .site-header,
+  body.topic-page.nav-open .site-header,
+  body.waitlist-page.nav-open .site-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    z-index: 200;
+    background: #ffffff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+
+  body.nav-open .nav__links--center,
+  body.nav-open .topic-nav,
+  body.legal-page.nav-open .topic-nav,
+  body.topic-page.nav-open .topic-nav {
+    position: fixed !important;
+    top: var(--header-h) !important;
+    left: 0;
+    right: 0;
+    z-index: 201;
+  }
+}
+
 .legal-main {
   padding: 2.5rem 0 4rem;
   min-height: 60vh;
@@ -1997,7 +2171,8 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
 }
 
 .waitlist-field input,
-.waitlist-field select {
+.waitlist-field select,
+.waitlist-field textarea {
   width: 100%;
   padding: 0.75rem 0.9rem;
   font: inherit;
@@ -2007,8 +2182,15 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
   border-radius: var(--radius-btn);
 }
 
+.waitlist-field textarea {
+  min-height: 6.5rem;
+  resize: vertical;
+  line-height: 1.5;
+}
+
 .waitlist-field input:focus,
-.waitlist-field select:focus {
+.waitlist-field select:focus,
+.waitlist-field textarea:focus {
   outline: 2px solid var(--color-accent);
   outline-offset: 1px;
   border-color: var(--color-accent);

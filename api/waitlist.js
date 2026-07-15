@@ -74,6 +74,9 @@ module.exports = async function handler(req, res) {
   const name = String(body.name || "")
     .trim()
     .slice(0, 120);
+  const comments = String(body.comments || "")
+    .trim()
+    .slice(0, 1000);
   let interest = String(body.interest || "both")
     .trim()
     .toLowerCase();
@@ -89,5 +92,6 @@ module.exports = async function handler(req, res) {
     email,
     name: name || "Waitlist guest",
     interest,
+    comments,
   });
 };

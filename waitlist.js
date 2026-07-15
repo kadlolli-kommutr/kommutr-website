@@ -28,12 +28,17 @@
     var emailInput = form.elements.namedItem("email");
     var nameInput = form.elements.namedItem("name");
     var interestInput = form.elements.namedItem("interest");
+    var commentsInput = form.elements.namedItem("comments");
     var hpInput = form.elements.namedItem("company_url");
 
     var email = emailInput && "value" in emailInput ? String(emailInput.value).trim() : "";
     var name = nameInput && "value" in nameInput ? String(nameInput.value).trim() : "";
     var interest =
       interestInput && "value" in interestInput ? String(interestInput.value).trim() : "both";
+    var comments =
+      commentsInput && "value" in commentsInput
+        ? String(commentsInput.value).trim().slice(0, 1000)
+        : "";
     var honeypot = hpInput && "value" in hpInput ? String(hpInput.value).trim() : "";
 
     if (!email || email.indexOf("@") < 1) {
@@ -61,6 +66,7 @@
         email: email,
         name: name,
         interest: interest,
+        comments: comments,
         company_url: "",
       }),
     })
@@ -91,8 +97,11 @@
               "Kommutr waitlist signup.\nInterest: " +
               (result.data.interest || interest) +
               "\nName: " +
-              (name || "(not provided)"),
+              (name || "(not provided)") +
+              "\nHow can we better serve you: " +
+              (result.data.comments || comments || "(not provided)"),
             interest: result.data.interest || interest,
+            comments: result.data.comments || comments || "",
           }),
         }).then(function (upstream) {
           return upstream.json().then(function (data) {
