@@ -2010,17 +2010,36 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
 }
 
 .footer__social {
-  margin: 0 0 0.75rem;
-  font-size: 0.9375rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 0.85rem;
 }
 
 .footer__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
   color: var(--color-text);
-  font-weight: 500;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
 }
 
 .footer__social a:hover {
   color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.footer__social svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
+  fill: currentColor;
 }
 
 .footer__tagline {
