@@ -2009,6 +2009,20 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
   border-top: 1px solid var(--color-border);
 }
 
+.footer__social {
+  margin: 0 0 0.75rem;
+  font-size: 0.9375rem;
+}
+
+.footer__social a {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.footer__social a:hover {
+  color: var(--color-accent);
+}
+
 .footer__tagline {
   font-size: 0.8125rem;
   font-weight: 600;
