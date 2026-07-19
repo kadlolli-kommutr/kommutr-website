@@ -10,6 +10,7 @@ Kommutr is a local mobility app for riders and drivers across Austin and nearby 
 - [Drive](https://www.kommutr.com/drive/): Share your commute; get reimbursed for expenses with verified riders
 - [Business](https://www.kommutr.com/business/): Employer and partnership inquiries
 - [Support](https://www.kommutr.com/support/): Support posture and contact
+- [FAQ](https://www.kommutr.com/faq/): Recurring vs occasional, verification, reimbursement, tax resources
 - [Greater Austin](https://www.kommutr.com/cities/austin/): Service area narrative
 - [Privacy Policy](https://www.kommutr.com/privacy/): How Kommutr handles personal data (stub until attorney-approved policy)
 - [Terms of Service](https://www.kommutr.com/terms/): Legal terms for using Kommutr (stub until attorney-approved terms)

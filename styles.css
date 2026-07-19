@@ -816,6 +816,116 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
   text-align: center;
 }
 
+/* ---------- Trust / Peace of mind ---------- */
+.trust-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.trust-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.35rem 1.35rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.trust-card__eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.trust-card__title {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.trust-card__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 120px;
+  margin: 0 0 1rem;
+  padding: 1.25rem 1rem;
+  border-radius: var(--radius);
+  border: 1px dashed var(--color-border);
+  background: var(--color-bg-muted);
+  text-align: center;
+}
+
+.trust-card__placeholder-label {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+}
+
+.trust-card__placeholder-hint {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  max-width: 28ch;
+}
+
+.trust-card__partner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin: 0 0 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-muted);
+}
+
+.trust-card__partner-label {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.trust-card__partner-link {
+  display: inline-flex;
+  line-height: 0;
+}
+
+.trust-card__partner-link img {
+  display: block;
+  height: 36px;
+  width: auto;
+}
+
+.trust-card__text {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
+.trust-card__text a {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.faq-doc h2 {
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+}
+
 .timeline {
   list-style: none;
   margin: 2rem 0 0;
@@ -2334,6 +2444,9 @@ body.nav-open .nav__links--center .nav__mobile-cta a {
 }
 
 .topic-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   margin: 2rem 0 0;
 }
 

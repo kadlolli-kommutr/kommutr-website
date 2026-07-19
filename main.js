@@ -113,6 +113,7 @@
       "top",
       "value",
       "how",
+      "peace-of-mind",
       "paths",
       "drive",
       "cities",
