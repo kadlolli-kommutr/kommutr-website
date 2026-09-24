@@ -1,5 +1,27 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/privacy",
+      "destination": "https://app.kommutr.com/legal#privacy",
+      "permanent": true
+    },
+    {
+      "source": "/privacy/",
+      "destination": "https://app.kommutr.com/legal#privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "https://app.kommutr.com/legal#terms",
+      "permanent": true
+    },
+    {
+      "source": "/terms/",
+      "destination": "https://app.kommutr.com/legal#terms",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
